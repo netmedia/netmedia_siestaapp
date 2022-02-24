@@ -3,7 +3,7 @@ import slugify from "slugify";
 
 const Navigation = ({ menuItems }) => {
   return (
-    <nav>
+    <nav className="p-5">
       <ul>
         {menuItems.map((item, index) => {
           const menuItemPath = index
@@ -12,7 +12,9 @@ const Navigation = ({ menuItems }) => {
           return (
             <li key={item}>
               <Link key={item} to={menuItemPath}>
-                <a>{item}</a>
+                <a className="block text-white font-regular p-6 hover:text-siesta-grey-light">
+                  {item}
+                </a>
               </Link>
             </li>
           );
