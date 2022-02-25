@@ -1,7 +1,13 @@
 import React from "react";
+import Sidebar from "../components/sidebar/sidebar";
 
 function Dashboard() {
-  return <div>Dashboard</div>;
+  return (
+    <div>
+      <Sidebar />
+      Dashboard
+    </div>
+  );
 }
 
 export default Dashboard;

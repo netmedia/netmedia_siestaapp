@@ -7,6 +7,7 @@ module.exports = {
       contain: "contain",
       50: "50px",
       16: "4rem",
+      100: "100%",
     },
     screens: {
       sm: "640px",
@@ -30,6 +31,9 @@ module.exports = {
           dark: "#979797",
         },
       },
+      backgroundImage: (theme) => ({
+        splash: "url('/src/assets/splashScreen.jpg')",
+      }),
       lineHeight: {
         3: "1.2rem",
         4: "1.6rem",

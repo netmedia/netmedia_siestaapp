@@ -1,5 +1,6 @@
 import React from "react";
 import Navigation from "./navigation";
+import Logout from "../login/logout";
 
 const menuItems = ["Dashboard", "Entries", "Statistics", "About"];
 
@@ -12,6 +13,7 @@ const Sidebar = () => {
             Siesta.
           </div>
           <Navigation menuItems={menuItems} />
+          <Logout />
         </div>
       </main>
     </header>
