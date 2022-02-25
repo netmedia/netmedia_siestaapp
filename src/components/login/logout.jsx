@@ -1,10 +1,13 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { GoogleLogout } from "react-google-login";
 
 function Logout() {
+  let history = useHistory();
+
   const onSuccess = () => {
     localStorage.removeItem("loginData");
-    window.location.pathname = "/";
+    history.push("/");
   };
 
   return (

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { useGoogleLogin } from "react-google-login";
 import { refreshTokenSetup } from "../../utils/refreshToken";
 
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
 function Login() {
+  let history = useHistory();
   const [loginData, setLoginData] = useState(
     localStorage.getItem("loginData")
       ? JSON.parse(localStorage.getItem("loginData"))
@@ -15,7 +17,7 @@ function Login() {
     console.log(googleData);
     localStorage.setItem("loginData", JSON.stringify(googleData));
     refreshTokenSetup(googleData);
-    window.location.pathname = "/dashboard";
+    history.push("/dashboard");
   };
 
   const onFailure = (result) => {
