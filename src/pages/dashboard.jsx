@@ -20,11 +20,17 @@ const Dashboard = () => {
     },
   ];
 
+  const defaultMarkupClasses = {
+    activeClass: `rounded-full bg-siesta-blue-light text-white px-8 py-3 cursor-pointer`,
+
+    defaultClass: `cursor-pointer px-8 py-3`,
+  };
+
   return (
     <main className='max-w-6xl flex flex-col gap-8'>
       <div className=''>
         <h2 className='font-normal text-xl px-5'>Dashboard</h2>
-        <p className='font-normal text-gray-400 text-xsm px-5'>Home / Dashboard</p>
+        <p className='font-light text-gray-400 text-sm px-5 py-2'>Home / Dashboard</p>
       </div>
       <div className='flex items-center justify-between gap-8 flex-wrap px-5 py-3'>
         {widgetContent.map((items, key) => {
@@ -34,8 +40,8 @@ const Dashboard = () => {
 
       <div className='max-w-6xl px-5 flex flex-wrap gap-4  items-start justify-between'>
         <div>
-          <h2 className='font-normal text-xl px-5'>Sleep Entries</h2>
-          <p className='font-normal text-gray-400 text-xsm px-5'>Activity</p>
+          <h2 className='font-normal text-xl'>Sleep Entries</h2>
+          <p className='font-light text-gray-400 text-sm py-2'>Activity</p>
           <Chart displayMode={displayMode} />
         </div>
         <div className='px-2 py-2 bg-siesta-grey-light rounded-full flex gap-4 place-items-center justify-between'>
@@ -45,21 +51,21 @@ const Dashboard = () => {
             }}
             className={
               displayMode === "weekly"
-                ? `rounded-full bg-siesta-blue-light text-white px-8 py-3 cursor-pointer`
-                : `cursor-pointer px-8 py-3 `
+                ? defaultMarkupClasses.activeClass
+                : defaultMarkupClasses.defaultClass
             }
           >
             Weekly
           </p>
           <p
-            className={
-              displayMode === "monthly"
-                ? `rounded-full bg-siesta-blue-light text-white px-8 py-3 cursor-pointer`
-                : `cursor-pointer px-8 py-3`
-            }
             onClick={() => {
               setDisplayMode("monthly");
             }}
+            className={
+              displayMode === "monthly"
+                ? defaultMarkupClasses.activeClass
+                : defaultMarkupClasses.defaultClass
+            }
           >
             Monthly
           </p>

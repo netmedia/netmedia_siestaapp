@@ -1,5 +1,3 @@
-import React from "react";
-
 const UserWidget = ({ items }) => {
   const { name, count, icon } = items;
   return (
