@@ -3,10 +3,19 @@ import Login from "../components/login/login";
 import { Image } from "react-bootstrap";
 import urlImg from "../assets/splashScreen.jpg";
 
+import StarfieldAnimation from "react-starfield-animation";
+
 function SplashScreen() {
   return (
     <div className="">
       <div className="absolute -z-1 w-[100%] h-[100%]">
+        <StarfieldAnimation
+          style={{
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+          }}
+        />
         <Image fluid src={urlImg} className="w-[100%] h-[100%]" />
       </div>
       <div className="z-20 text-white absolute text-4xl font-regular font-bold p-10">
