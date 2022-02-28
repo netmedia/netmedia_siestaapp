@@ -24,16 +24,16 @@ const Chart = ({ displayMode }) => {
       return (
         <VictoryChart domainPadding={20} theme={VictoryTheme.material}>
           <VictoryAxis tickValues={[1, 2, 3, 4, 5]} />
-          <VictoryAxis dependentAxis tickFormat={(y) => `${y} hours`} />
-          <VictoryBar data={weeklyData} x='day' y='hours' />
+          <VictoryAxis dependentAxis tickFormat={(y) => `${y} h`} />
+          <VictoryBar data={weeklyData} x="day" y="hours" />
         </VictoryChart>
       );
     case "monthly":
       return (
         <VictoryChart domainPadding={20} theme={VictoryTheme.material}>
           <VictoryAxis tickValues={[1, 2, 3, 4]} />
-          <VictoryAxis dependentAxis tickFormat={(y) => `${y} average h`} />
-          <VictoryBar data={monthlyData} x='week' y='avgHours' />
+          <VictoryAxis dependentAxis tickFormat={(y) => `${y} h`} />
+          <VictoryBar data={monthlyData} x="week" y="avgHours" />
         </VictoryChart>
       );
 
@@ -41,8 +41,8 @@ const Chart = ({ displayMode }) => {
       return (
         <VictoryChart domainPadding={20} theme={VictoryTheme.material}>
           <VictoryAxis tickValues={[1, 2, 3, 4, 5]} />
-          <VictoryAxis dependentAxis tickFormat={(y) => `${y} hours`} />
-          <VictoryBar data={weeklyData} x='day' y='hours' />
+          <VictoryAxis dependentAxis tickFormat={(y) => `${y} h`} />
+          <VictoryBar data={weeklyData} x="day" y="hours" />
         </VictoryChart>
       );
   }
