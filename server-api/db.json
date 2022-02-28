@@ -1,22 +1,10 @@
 {
-  "posts": [
+  "entries": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    },
-    {
-      "id": 3
+      "title": "test",
+      "date": "",
+      "startTime": "",
+      "endTime": ""
     }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
