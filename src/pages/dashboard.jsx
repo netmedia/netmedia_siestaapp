@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import UserWidget from "../components/dashboard/userWidget";
 import { AiOutlineBarChart } from "react-icons/ai";
 import { BsFillCalculatorFill, BsAlarm } from "react-icons/bs";
@@ -94,18 +93,5 @@ const Dashboard = () => {
     </main>
   );
 };
-=======
-import React from "react";
-import Sidebar from "../components/sidebar/sidebar";
-
-function Dashboard() {
-  return (
-    <div>
-      <Sidebar />
-      Dashboard
-    </div>
-  );
-}
->>>>>>> 5c2c95f19692fc8ecca99ddac29c7428b85e6b51
 
 export default Dashboard;
