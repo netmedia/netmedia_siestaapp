@@ -34,8 +34,10 @@ function Login() {
 
   return (
     <div>
-      <button onClick={signIn} className="button">
-        <span className="text-white font-regular text-2xl">Login</span>
+      <button onClick={signIn} className="">
+        <span className="px-2 text-white font-regular text-2xl hover:text-siesta-grey-light hover:border-b-3 hover:border-siesta-grey-light">
+          Login
+        </span>
       </button>
     </div>
   );
