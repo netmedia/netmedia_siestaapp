@@ -15,7 +15,10 @@ const NewEntry = ({ setShowForm }) => {
 
     alert(JSON.stringify(formData));
 
-    fetch(`http://localhost:3005/posts`, { method: "POST", body: JSON.stringify(formData) })
+    fetch(`http://localhost:3005/entries`, {
+      method: "POST",
+      body: JSON.stringify(formData),
+    })
       .then((result) => result.json())
       .then((res) => console.log(res))
       .catch((error) => console.warn(error));
@@ -38,7 +41,7 @@ const NewEntry = ({ setShowForm }) => {
           type='text'
           name='title'
           id='title'
-          className='rounded-xl p-2'
+          className='rounded-xl transition-all outline-1 p-2 focus:outline-1 outline-siesta-blue-light'
         />
       </div>
 
