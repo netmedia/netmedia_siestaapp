@@ -9,11 +9,16 @@
     "react": "^17.0.2",
     "react-bootstrap": "^2.1.2",
     "react-dom": "^17.0.2",
+<<<<<<< HEAD
+    "react-icons": "^4.3.1",
+=======
     "react-google-login": "^5.2.2",
+>>>>>>> 5c2c95f19692fc8ecca99ddac29c7428b85e6b51
     "react-router-dom": "^5.2.0",
     "react-scripts": "5.0.0",
     "react-starfield-animation": "^1.0.1",
     "slugify": "^1.6.5",
+    "victory": "^36.3.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
