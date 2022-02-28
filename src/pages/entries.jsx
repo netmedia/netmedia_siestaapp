@@ -1,7 +1,13 @@
 import React from "react";
+import Sidebar from "../components/sidebar/sidebar";
 
 function Entries() {
-  return <div>Entries</div>;
+  return (
+    <div>
+      <Sidebar />
+      Entries
+    </div>
+  );
 }
 
 export default Entries;
