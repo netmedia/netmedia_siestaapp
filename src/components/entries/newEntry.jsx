@@ -11,7 +11,7 @@ const NewEntry = ({ setShowForm }) => {
     endTime: "",
   });
 
-  const handleSubmit = (event) => {
+  const handleSubmit = () => {
     axios
       .post("http://localhost:3005/entries", {
         title: formData.title,
