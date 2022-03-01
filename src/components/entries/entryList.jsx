@@ -14,6 +14,15 @@ const EntryList = ({ setShowForm }) => {
     });
   }, []);
 
+  const formatDate = (dateString) => {
+    const options = {
+      year: "numeric",
+      month: "numeric",
+      day: "numeric",
+    };
+    return new Date(dateString).toLocaleDateString(options);
+  };
+
   return (
     <div className="flex flex-row gap-5 p-5">
       {listOfEntries.map((value, key) => {
@@ -23,7 +32,7 @@ const EntryList = ({ setShowForm }) => {
             className="flex flex-col gap-10 place-items-start justify-between bg-siesta-grey-light px-4 py-8 text-sm rounded-xl"
           >
             <div>Title: {value.title}</div>
-            <div>Date: {value.date}</div>
+            <div>Date: {formatDate(value.date)}</div>
             <div>Sleep start time: {value.startTime}</div>
             <div>Sleep end time:{value.endTime}</div>
             <div>

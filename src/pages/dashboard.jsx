@@ -3,6 +3,7 @@ import { AiOutlineBarChart } from "react-icons/ai";
 import { BsFillCalculatorFill, BsAlarm } from "react-icons/bs";
 import { useState } from "react";
 import Chart from "../components/dashboard/chart";
+import UpcomingAlarms from "../components/dashboard/upcomingAlarms";
 import Sidebar from "../components/sidebar/sidebar";
 import { Col, Container, Row } from "react-bootstrap";
 
@@ -85,26 +86,8 @@ const Dashboard = () => {
               </div>
               <Chart displayMode={displayMode} />
             </Col>
-            <Col className="flex flex-col gap-4 w-3/12 pt-24">
-              <div className="bg-siesta-grey-light rounded-3xl py-4">
-                <p className="text-center font-normal text-xs whitespace-nowrap">
-                  Upcoming alarms
-                </p>
-              </div>
-              <div className="pl-5 flex flex-col gap-4">
-                <div className="pt-5">
-                  <p>Medicine</p>
-                  <p className="text-gray-400 font-light">05:00 AM</p>
-                </div>
-                <div className="">
-                  <p>Workout</p>
-                  <p className="text-gray-400 font-light">07:00 AM</p>
-                </div>
-                <div className="">
-                  <p>Time for school</p>
-                  <p className="text-gray-400 font-light">09:30 AM</p>
-                </div>
-              </div>
+            <Col className="flex flex-col gap-2 w-3/12 pt-24">
+              <UpcomingAlarms />
             </Col>
           </Row>
         </Col>

@@ -10,10 +10,12 @@ const Navigation = ({ menuItems }) => {
 
           return (
             <li key={item}>
-              <Link key={item} to={menuItemPath}>
-                <a className="p-5 no-underline block text-white font-regular hover:text-siesta-grey-light">
-                  {item}
-                </a>
+              <Link
+                key={item}
+                to={menuItemPath}
+                className="p-5 no-underline block text-white font-regular hover:text-siesta-grey-light"
+              >
+                {item}
               </Link>
             </li>
           );
