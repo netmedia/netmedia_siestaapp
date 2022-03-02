@@ -5,13 +5,19 @@ const UpcomingAlarms = ({ setShowForm }) => {
   const [listOfEntries, setListOfEntries] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3005/entries").then((response) => {
-      if (response.data.error) {
-        console.log(response.data.error);
-      } else {
-        setListOfEntries(response.data);
-      }
-    });
+    axios
+      .get(
+        `http://localhost:3005/entries?userId=${
+          JSON.parse(localStorage.getItem("loginData")).googleId
+        }`
+      )
+      .then((response) => {
+        if (response.data.error) {
+          console.log(response.data.error);
+        } else {
+          setListOfEntries(response.data);
+        }
+      });
   }, []);
 
   const currentTime = () => {
@@ -50,19 +56,17 @@ const UpcomingAlarms = ({ setShowForm }) => {
       {listOfEntries.map((value, key) => {
         return (
           <div key={key}>
-            {compareDateTime(value.date, value.endTime) &&
-              value.userId ===
-                JSON.parse(localStorage.getItem("loginData")).googleId && (
-                <div className="pl-5 flex flex-col gap-4">
-                  <div className="pt-1">
-                    <p>{value.title}</p>
-                    <p className="text-gray-400 font-light">
-                      {formatDate(value.date)}
-                    </p>
-                    <p className="text-gray-400 font-light">{value.endTime}</p>
-                  </div>
+            {compareDateTime(value.date, value.endTime) && (
+              <div className="pl-5 flex flex-col gap-4">
+                <div className="pt-1">
+                  <p>{value.title}</p>
+                  <p className="text-gray-400 font-light">
+                    {formatDate(value.date)}
+                  </p>
+                  <p className="text-gray-400 font-light">{value.endTime}</p>
                 </div>
-              )}
+              </div>
+            )}
           </div>
         );
       })}

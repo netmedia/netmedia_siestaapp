@@ -5,13 +5,19 @@ const EntryList = ({ setShowForm }) => {
   const [listOfEntries, setListOfEntries] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3005/entries").then((response) => {
-      if (response.data.error) {
-        console.log(response.data.error);
-      } else {
-        setListOfEntries(response.data);
-      }
-    });
+    axios
+      .get(
+        `http://localhost:3005/entries?userId=${
+          JSON.parse(localStorage.getItem("loginData")).googleId
+        }`
+      )
+      .then((response) => {
+        if (response.data.error) {
+          console.log(response.data.error);
+        } else {
+          setListOfEntries(response.data);
+        }
+      });
   }, []);
 
   const formatDate = (dateString) => {
@@ -24,23 +30,33 @@ const EntryList = ({ setShowForm }) => {
   };
 
   return (
-    <div className="flex flex-row gap-5 p-5">
+    <div className="flex flex-wrap gap-5 p-5">
       {listOfEntries.map((value, key) => {
         return (
-          <div key={key}>
-            {value.userId ===
-              JSON.parse(localStorage.getItem("loginData")).googleId && (
-              <div className="flex flex-col gap-10 place-items-start justify-between bg-siesta-grey-light px-4 py-8 text-sm rounded-xl">
-                <div>Title: {value.title}</div>
-                <div>Date: {formatDate(value.date)}</div>
-                <div>Sleep start time: {value.startTime}</div>
-                <div>Sleep end time:{value.endTime}</div>
-                <div>
-                  Hours of sleep:
-                  {parseInt(value.endTime) - parseInt(value.startTime)}
-                </div>
+          <div key={key} className="flex">
+            <div className="flex flex-col gap-8 place-items-start justify-between bg-siesta-grey-light px-4 py-4 text-sm rounded-xl w-[250px]">
+              <div>
+                <p className="text-siesta-blue-light font-bold">
+                  {value.title}
+                </p>
               </div>
-            )}
+              <div>
+                <p className="font-bold text-siesta-grey-dark">
+                  {formatDate(value.date)}
+                </p>
+              </div>
+              <div>
+                <p className="font-bold text-siesta-grey-dark">
+                  {value.startTime} - {value.endTime}
+                </p>
+              </div>
+              <div>
+                <p className="font-bold text-red-600">
+                  {parseInt(value.endTime) - parseInt(value.startTime)} hours of
+                  sleep
+                </p>
+              </div>
+            </div>
           </div>
         );
       })}
