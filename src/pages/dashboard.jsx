@@ -5,6 +5,7 @@ import { useState } from "react";
 import Chart from "../components/dashboard/chart";
 import UpcomingAlarms from "../components/dashboard/upcomingAlarms";
 import Sidebar from "../components/sidebar/sidebar";
+import User from "../components/login/user";
 import { Col, Container, Row } from "react-bootstrap";
 
 const Dashboard = () => {
@@ -47,6 +48,7 @@ const Dashboard = () => {
             <p className="font-light text-gray-400 text-sm px-5 py-2">
               Home / Dashboard
             </p>
+            <User />
           </Row>
           <Row className="flex items-center justify-between gap-8 flex-nowrap px-5 py-3">
             {widgetContent.map((items, key) => {

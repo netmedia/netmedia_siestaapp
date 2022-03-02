@@ -27,13 +27,10 @@ const EntryList = ({ setShowForm }) => {
     <div className="flex flex-row gap-5 p-5">
       {listOfEntries.map((value, key) => {
         return (
-          <>
+          <div key={key}>
             {value.userId ===
               JSON.parse(localStorage.getItem("loginData")).googleId && (
-              <div
-                key={key}
-                className="flex flex-col gap-10 place-items-start justify-between bg-siesta-grey-light px-4 py-8 text-sm rounded-xl"
-              >
+              <div className="flex flex-col gap-10 place-items-start justify-between bg-siesta-grey-light px-4 py-8 text-sm rounded-xl">
                 <div>Title: {value.title}</div>
                 <div>Date: {formatDate(value.date)}</div>
                 <div>Sleep start time: {value.startTime}</div>
@@ -44,7 +41,7 @@ const EntryList = ({ setShowForm }) => {
                 </div>
               </div>
             )}
-          </>
+          </div>
         );
       })}
     </div>
