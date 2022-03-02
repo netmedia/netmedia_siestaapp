@@ -2,8 +2,9 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllEntries } from "../../redux/entries/entriesActions";
 
-const EntryList = ({ setShowForm }) => {
+const EntryList = () => {
   const dispatch = useDispatch();
+  const listOfEntries = useSelector((state) => state.entries.entries);
 
   useEffect(() => {
     dispatch(
@@ -16,7 +17,6 @@ const EntryList = ({ setShowForm }) => {
     // eslint-disable-next-line
   }, []);
 
-  const listOfEntries = useSelector((state) => state.entries.entries);
   const formatDate = (dateString) => {
     const options = {
       year: "numeric",
