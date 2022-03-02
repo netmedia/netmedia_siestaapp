@@ -1,19 +1,16 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getAllEntries } from "../../redux/entries/entriesActions";
 
 const EntryList = ({ setShowForm }) => {
-  const [listOfEntries, setListOfEntries] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    axios.get("http://localhost:3005/entries").then((response) => {
-      if (response.data.error) {
-        console.log(response.data.error);
-      } else {
-        setListOfEntries(response.data);
-      }
-    });
+    dispatch(getAllEntries("http://localhost:3005/entries"));
+    // eslint-disable-next-line
   }, []);
 
+  const listOfEntries = useSelector((state) => state.entries.entries);
   const formatDate = (dateString) => {
     const options = {
       year: "numeric",
@@ -24,13 +21,12 @@ const EntryList = ({ setShowForm }) => {
   };
 
   return (
-    <div className="flex flex-row gap-5 p-5">
+    <div className='flex flex-row gap-5 p-5'>
       {listOfEntries.map((value, key) => {
         return (
           <div key={key}>
-            {value.userId ===
-              JSON.parse(localStorage.getItem("loginData")).googleId && (
-              <div className="flex flex-col gap-10 place-items-start justify-between bg-siesta-grey-light px-4 py-8 text-sm rounded-xl">
+            {value.userId === JSON.parse(localStorage.getItem("loginData")).googleId && (
+              <div className='flex flex-col gap-10 place-items-start justify-between bg-siesta-grey-light px-4 py-8 text-sm rounded-xl'>
                 <div>Title: {value.title}</div>
                 <div>Date: {formatDate(value.date)}</div>
                 <div>Sleep start time: {value.startTime}</div>
