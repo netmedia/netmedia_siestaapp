@@ -88,7 +88,7 @@ const Dashboard = () => {
               </div>
               <Chart displayMode={displayMode} />
             </Col>
-            <Col className="flex flex-col gap-2 w-3/12 pt-24">
+            <Col className="flex flex-col w-3/12 pt-24">
               <UpcomingAlarms />
             </Col>
           </Row>

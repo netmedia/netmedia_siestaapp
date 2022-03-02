@@ -8,7 +8,13 @@ function User() {
 
   return (
     <div className="text-md absolute right-5 top-5 flex flex-row items-center gap-2">
-      <Image src={imgUrl} className="rounded-full" height={50} width={50} />
+      <Image
+        src={imgUrl}
+        className="rounded-full"
+        alt="profile"
+        height={50}
+        width={50}
+      />
       {user}
     </div>
   );
