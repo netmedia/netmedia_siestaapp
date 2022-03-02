@@ -42,7 +42,7 @@ const Dashboard = () => {
         <Col>
           <Sidebar />
         </Col>
-        <Col lg={6} className="ml-[350px] 2xl:pt-20">
+        <Col lg={6} className="ml-[350px] xl:pt-20">
           <Row className="">
             <h2 className="font-normal text-xl px-5">Dashboard</h2>
             <p className="font-light text-gray-400 text-sm px-5 py-2">
@@ -56,7 +56,7 @@ const Dashboard = () => {
             })}
           </Row>
 
-          <Row className="max-w-6xl px-5 2xl:pt-10 flex flex-wrap gap-4 items-start justify-between">
+          <Row className="max-w-6xl px-5 xl:pt-10 flex flex-wrap gap-4 items-start justify-between">
             <Col>
               <h2 className="font-normal text-xl">Sleep Entries</h2>
               <p className="font-light text-gray-400 text-sm py-2">Activity</p>
@@ -88,7 +88,7 @@ const Dashboard = () => {
               </div>
               <Chart displayMode={displayMode} />
             </Col>
-            <Col className="flex flex-col w-3/12 pt-24">
+            <Col className="flex flex-col w-3/12 pt-24 gap-1">
               <UpcomingAlarms />
             </Col>
           </Row>
