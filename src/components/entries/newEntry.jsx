@@ -18,6 +18,7 @@ const NewEntry = ({ setShowForm }) => {
         date: formData.date,
         startTime: formData.startTime,
         endTime: formData.endTime,
+        userId: JSON.parse(localStorage.getItem("loginData")).googleId,
       })
       .then((response) => {
         if (response.data.error) {
@@ -29,7 +30,7 @@ const NewEntry = ({ setShowForm }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col gap-10 place-items-center justify-between  w-6/12 bg-siesta-grey-light px-4 py-8 text-sm rounded-xl"
+      className="flex flex-col gap-10 place-items-center justify-between w-6/12 bg-siesta-grey-light px-4 py-8 text-sm rounded-xl"
     >
       <div className="flex flex-col w-full gap-4">
         <label htmlFor="title" className="text-siesta-blue-light">

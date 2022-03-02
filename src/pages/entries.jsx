@@ -3,6 +3,7 @@ import NewEntry from "../components/entries/newEntry";
 import EntryList from "../components/entries/entryList";
 import Sidebar from "../components/sidebar/sidebar";
 import { useState } from "react";
+
 const Entries = () => {
   const [showForm, setShowForm] = useState(false);
 
