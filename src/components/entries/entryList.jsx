@@ -2,15 +2,21 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllEntries } from "../../redux/entries/entriesActions";
 
-const EntryList = ({ setShowForm }) => {
+const EntryList = () => {
   const dispatch = useDispatch();
+  const listOfEntries = useSelector((state) => state.entries.entries);
 
   useEffect(() => {
-    dispatch(getAllEntries("http://localhost:3005/entries"));
+    dispatch(
+      getAllEntries(
+        `http://localhost:3005/entries?userId=${
+          JSON.parse(localStorage.getItem("loginData")).googleId
+        }`
+      )
+    );
     // eslint-disable-next-line
   }, []);
 
-  const listOfEntries = useSelector((state) => state.entries.entries);
   const formatDate = (dateString) => {
     const options = {
       year: "numeric",
