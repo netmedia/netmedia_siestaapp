@@ -22,14 +22,13 @@ const UpcomingAlarms = ({ setShowForm }) => {
     return h + ":" + m;
   };
 
-  const compareDate = (d1, d2) => {
-    const date1 = new Date(d1).toISOString().slice(0, 10);
-    const date2 = new Date(d2).toISOString().slice(0, 10);
-    return date1 >= date2;
-  };
+  const compareDateTime = (d, t) => {
+    const date1 = new Date(d).toISOString().slice(0, 10);
+    const date2 = new Date(Date.now()).toISOString().slice(0, 10);
 
-  const compareTime = (t) => {
-    return t >= currentTime();
+    return (
+      Date.parse(`${date1} ${t}`) >= Date.parse(`${date2} ${currentTime()}`)
+    );
   };
 
   const formatDate = (dateString) => {
@@ -51,7 +50,7 @@ const UpcomingAlarms = ({ setShowForm }) => {
       {listOfEntries.map((value, key) => {
         return (
           <div key={key}>
-            {compareDate(value.date, Date.now()) && compareTime(value.endTime) && (
+            {compareDateTime(value.date, value.endTime) && (
               <div className="pl-5 flex flex-col gap-4">
                 <div className="pt-1">
                   <p>{value.title}</p>
