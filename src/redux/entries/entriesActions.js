@@ -131,14 +131,14 @@ export const addSingleEntry = (endpoint, options) => {
   };
 };
 
-export const deleteSingleEntry = (endpoint, baseURL) => {
+export const deleteSingleEntry = (endpoint, userURL) => {
   return (dispatch) => {
     dispatch(deleteSingleEntryReq());
     axios
       .delete(endpoint)
       .then((response) => console.log(response))
       .catch((error) => console.log(error))
-      .finally(dispatch(getAllEntries(baseURL)));
+      .finally(dispatch(getAllEntries(userURL)));
   };
 };
 

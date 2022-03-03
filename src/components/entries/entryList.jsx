@@ -5,7 +5,8 @@ import { deleteSingleEntry, getAllEntries } from "../../redux/entries/entriesAct
 const EntryList = ({ setShowEditForm, setItemToEditID }) => {
   const dispatch = useDispatch();
   const listOfEntries = useSelector((state) => state.entries.entries);
-  const baseURL = `http://localhost:3005/entries?userId=${
+  const baseURL = `http://localhost:3005/entries/`;
+  const userURL = `http://localhost:3005/entries?userId=${
     JSON.parse(localStorage.getItem("loginData")).googleId
   }`;
 
@@ -41,7 +42,7 @@ const EntryList = ({ setShowEditForm, setItemToEditID }) => {
   };
 
   const handleDelete = (entryID) => {
-    dispatch(deleteSingleEntry(`${baseURL}${entryID}`, `${baseURL}`));
+    dispatch(deleteSingleEntry(`${baseURL}${entryID}`, `${userURL}`));
   };
 
   return (
