@@ -9,54 +9,6 @@
       "id": 1
     },
     {
-      "title": "Time for School",
-      "date": "2010-01-01",
-      "startTime": "02:00",
-      "endTime": "10:00",
-      "userId": "116204320788057797089",
-      "id": 2
-    },
-    {
-      "title": "Sunday Brunch",
-      "date": "2022-10-10",
-      "startTime": "10:00",
-      "endTime": "20:00",
-      "userId": "116204320788057797089",
-      "id": 3
-    },
-    {
-      "title": "Weekend Workout",
-      "date": "2011-10-10",
-      "startTime": "10:00",
-      "endTime": "12:00",
-      "userId": "116204320788057797099",
-      "id": 4
-    },
-    {
-      "title": "Studying",
-      "date": "2022-03-01",
-      "startTime": "01:00",
-      "endTime": "12:00",
-      "userId": "116204320788057797099",
-      "id": 5
-    },
-    {
-      "title": "Workshop",
-      "date": "2022-03-03",
-      "startTime": "10:00",
-      "endTime": "20:00",
-      "userId": "116204320788057797099",
-      "id": 6
-    },
-    {
-      "title": "Work",
-      "date": "2023-10-10",
-      "startTime": "01:00",
-      "endTime": "20:00",
-      "userId": "116204320788057797089",
-      "id": 8
-    },
-    {
       "title": "Go to work",
       "date": "2022-04-02",
       "startTime": "00:00",
@@ -65,20 +17,12 @@
       "id": 9
     },
     {
-      "title": "ostavi me na miru",
+      "title": "ostavi me na miru !!!",
       "date": "2022-03-03",
-      "startTime": "00:00",
+      "startTime": "02:01",
       "endTime": "06:03",
       "userId": "113311620023076480522",
       "id": 10
-    },
-    {
-      "title": "smile",
-      "date": "2022-03-04",
-      "startTime": "01:00",
-      "endTime": "06:30",
-      "userId": "113311620023076480522",
-      "id": 11
     },
     {
       "title": "rudiTest",
@@ -129,14 +73,6 @@
       "id": 17
     },
     {
-      "title": "123",
-      "date": "2022-01-01",
-      "startTime": "01:01",
-      "endTime": "01:01",
-      "userId": "113311620023076480522",
-      "id": 18
-    },
-    {
       "title": "123333",
       "date": "2023-02-01",
       "startTime": "00:00",
@@ -153,20 +89,12 @@
       "id": 20
     },
     {
-      "title": "ll",
+      "title": "i am editing",
       "date": "2022-12-31",
       "startTime": "23:59",
       "endTime": "22:58",
       "userId": "113311620023076480522",
       "id": 21
-    },
-    {
-      "title": "ll",
-      "date": "0123-03-12",
-      "startTime": "12:03",
-      "endTime": "12:31",
-      "userId": "113311620023076480522",
-      "id": 22
     },
     {
       "title": "Test",
