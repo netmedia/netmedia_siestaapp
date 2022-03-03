@@ -9,7 +9,7 @@ import User from "../components/login/user";
 import { Col, Container, Row } from "react-bootstrap";
 
 const Dashboard = () => {
-  const [displayMode, setDisplayMode] = useState("weekly");
+  const [displayMode, setDisplayMode] = useState("latest");
   const widgetContent = [
     {
       name: "Alarms",
@@ -63,27 +63,27 @@ const Dashboard = () => {
               <div className="text-xs px-5 py-2 bg-siesta-grey-light rounded-full flex place-items-center justify-between">
                 <p
                   onClick={() => {
-                    setDisplayMode("weekly");
+                    setDisplayMode("latest");
                   }}
                   className={
-                    displayMode === "weekly"
+                    displayMode === "latest"
                       ? defaultMarkupClasses.activeClass
                       : defaultMarkupClasses.defaultClass
                   }
                 >
-                  Weekly
+                  Last 7 entries
                 </p>
                 <p
                   onClick={() => {
-                    setDisplayMode("monthly");
+                    setDisplayMode("average");
                   }}
                   className={
-                    displayMode === "monthly"
+                    displayMode === "average"
                       ? defaultMarkupClasses.activeClass
                       : defaultMarkupClasses.defaultClass
                   }
                 >
-                  Monthly
+                  Average
                 </p>
               </div>
               <Chart displayMode={displayMode} />
