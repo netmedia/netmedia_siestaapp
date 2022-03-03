@@ -1,6 +1,7 @@
 import UserWidget from "../components/dashboard/userWidget";
 import { AiOutlineBarChart } from "react-icons/ai";
-import { BsFillCalculatorFill, BsAlarm } from "react-icons/bs";
+import { BsFillCalculatorFill } from "react-icons/bs";
+import { MdOutlineEventNote } from "react-icons/md";
 import { useState } from "react";
 import Chart from "../components/dashboard/chart";
 import UpcomingAlarms from "../components/dashboard/upcomingAlarms";
@@ -12,20 +13,17 @@ const Dashboard = () => {
   const [displayMode, setDisplayMode] = useState("latest");
   const widgetContent = [
     {
-      name: "Alarms",
-      count: 10,
-      icon: <BsAlarm className="w-10 h-10 fill-siesta-blue-light" />,
+      name: "Entries",
+      icon: <MdOutlineEventNote className="w-10 h-10 fill-siesta-blue-light" />,
     },
     {
       name: "Calculator",
-      count: 3,
       icon: (
         <BsFillCalculatorFill className="w-10 h-10 fill-siesta-blue-light" />
       ),
     },
     {
       name: "Statistics",
-      count: 2,
       icon: <AiOutlineBarChart className="w-10 h-10 fill-siesta-blue-light" />,
     },
   ];

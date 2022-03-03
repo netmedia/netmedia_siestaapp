@@ -2,7 +2,6 @@ import { VictoryBar, VictoryChart } from "victory";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllEntries } from "../../redux/entries/entriesActions";
-import axios from "axios";
 
 const Chart = ({ displayMode }) => {
   const dispatch = useDispatch();
