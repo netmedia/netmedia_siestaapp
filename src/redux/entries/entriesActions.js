@@ -10,6 +10,9 @@ import {
   DELETE_SINGLE_ENTRY_REQUEST,
   DELETE_SINGLE_ENTRY_SUCCESS,
   DELETE_SINGLE_ENTRY_FAILURE,
+  UPDATE_SINGLE_ENTRY_REQUEST,
+  UPDATE_SINGLE_ENTRY_SUCCESS,
+  UPDATE_SINGLE_ENTRY_FAILURE,
 } from "./entriesTypes";
 
 export const fetchEntriesReq = () => {
@@ -72,6 +75,26 @@ export const deleteSingleEntryFailure = (errorMSG) => {
   };
 };
 
+export const updateSingleEntryRequest = () => {
+  return {
+    type: UPDATE_SINGLE_ENTRY_REQUEST,
+  };
+};
+
+export const updateSingleEntrySucces = (successMSG) => {
+  return {
+    type: UPDATE_SINGLE_ENTRY_SUCCESS,
+    payload: successMSG,
+  };
+};
+
+export const updateSingleEntryFailure = (errorMSG) => {
+  return {
+    type: UPDATE_SINGLE_ENTRY_FAILURE,
+    payload: errorMSG,
+  };
+};
+
 export const getAllEntries = (endpoint) => {
   return (dispatch) => {
     dispatch(fetchEntriesReq());
@@ -113,6 +136,17 @@ export const deleteSingleEntry = (endpoint, baseURL) => {
     dispatch(deleteSingleEntryReq());
     axios
       .delete(endpoint)
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error))
+      .finally(dispatch(getAllEntries(baseURL)));
+  };
+};
+
+export const updateSingleEntry = (endpoint, updatedEntry, baseURL) => {
+  return (dispatch) => {
+    dispatch(updateSingleEntryRequest());
+    axios
+      .put(endpoint, updatedEntry)
       .then((response) => console.log(response))
       .catch((error) => console.log(error))
       .finally(dispatch(getAllEntries(baseURL)));

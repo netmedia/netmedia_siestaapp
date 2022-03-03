@@ -1,12 +1,13 @@
-import axios from "axios";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { updateSingleEntry } from "../../redux/entries/entriesActions";
 const EditEntry = ({ itemToEditID, setShowEditForm }) => {
   const itemToEdit = useSelector((state) =>
     state.entries.entries.find((id) => id.id === itemToEditID)
   );
 
-  console.log(itemToEdit);
+  const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
     title: itemToEdit.title || "",
@@ -25,12 +26,16 @@ const EditEntry = ({ itemToEditID, setShowEditForm }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    axios.put(`http://localhost:3005/entries/${itemToEdit.id}`, payloadData).then((response) => {
-      console.log(response);
-      setShowEditForm(false);
-    });
-    // alert(JSON.stringify(payloadData));
+    setShowEditForm(false);
+    dispatch(
+      updateSingleEntry(
+        `http://localhost:3005/entries/${itemToEdit.id}`,
+        payloadData,
+        `http://localhost:3005/entries?userId=${
+          JSON.parse(localStorage.getItem("loginData")).googleId
+        }`
+      )
+    );
   };
 
   return (

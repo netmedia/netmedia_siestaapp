@@ -9,108 +9,12 @@
       "id": 1
     },
     {
-      "title": "Go to work",
-      "date": "2022-04-02",
-      "startTime": "00:00",
-      "endTime": "07:00",
-      "userId": "104190863256739827840",
-      "id": 9
-    },
-    {
-      "title": "ostavi me na miru !!!",
-      "date": "2022-03-03",
-      "startTime": "02:01",
-      "endTime": "06:03",
-      "userId": "113311620023076480522",
-      "id": 10
-    },
-    {
-      "title": "rudiTest",
-      "date": "2022-12-31",
-      "startTime": "23:59",
-      "endTime": "23:58",
-      "userId": "113311620023076480522",
-      "id": 12
-    },
-    {
-      "title": "what",
+      "title": "rudiEntry edit",
       "date": "2022-01-01",
       "startTime": "00:00",
-      "endTime": "00:01",
+      "endTime": "01:01",
       "userId": "113311620023076480522",
-      "id": 13
-    },
-    {
-      "title": "reduxBOJLER",
-      "date": "2022-01-01",
-      "startTime": "00:00",
-      "endTime": "02:01",
-      "userId": "113311620023076480522",
-      "id": 14
-    },
-    {
-      "title": "bojler",
-      "date": "0213-03-12",
-      "startTime": "12:23",
-      "endTime": "12:12",
-      "userId": "113311620023076480522",
-      "id": 15
-    },
-    {
-      "title": "123",
-      "date": "2022-02-01",
-      "startTime": "00:00",
-      "endTime": "23:59",
-      "userId": "113311620023076480522",
-      "id": 16
-    },
-    {
-      "title": "bojlerčina",
-      "date": "2022-12-31",
-      "startTime": "23:59",
-      "endTime": "23:59",
-      "userId": "113311620023076480522",
-      "id": 17
-    },
-    {
-      "title": "123333",
-      "date": "2023-02-01",
-      "startTime": "00:00",
-      "endTime": "23:57",
-      "userId": "113311620023076480522",
-      "id": 19
-    },
-    {
-      "title": "wth",
-      "date": "2022-01-01",
-      "startTime": "00:00",
-      "endTime": "00:00",
-      "userId": "113311620023076480522",
-      "id": 20
-    },
-    {
-      "title": "i am editing",
-      "date": "2022-12-31",
-      "startTime": "23:59",
-      "endTime": "22:58",
-      "userId": "113311620023076480522",
-      "id": 21
-    },
-    {
-      "title": "Test",
-      "date": "2022-01-29",
-      "startTime": "19:00",
-      "endTime": "06:00",
-      "userId": "116204320788057797089",
-      "id": 23
-    },
-    {
-      "title": "Testing",
-      "date": "2021-12-21",
-      "startTime": "20:30",
-      "endTime": "07:00",
-      "userId": "116204320788057797089",
-      "id": 24
+      "id": 2
     }
   ]
 }

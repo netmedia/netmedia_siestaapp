@@ -8,6 +8,9 @@ import {
   FETCH_ENTRIES_FAILURE,
   FETCH_ENTRIES_REQUEST,
   FETCH_ENTRIES_SUCCESS,
+  UPDATE_SINGLE_ENTRY_FAILURE,
+  UPDATE_SINGLE_ENTRY_REQUEST,
+  UPDATE_SINGLE_ENTRY_SUCCESS,
 } from "./entriesTypes";
 
 const initialState = {
@@ -83,6 +86,32 @@ export const entriesReducer = (state = initialState, action) => {
         msg: action.payload,
       };
     }
+
+    case UPDATE_SINGLE_ENTRY_REQUEST: {
+      return {
+        ...state,
+        loading: true,
+        error: false,
+      };
+    }
+
+    case UPDATE_SINGLE_ENTRY_FAILURE: {
+      return {
+        ...state,
+        loading: false,
+        error: true,
+        msg: action.payload,
+      };
+    }
+
+    case UPDATE_SINGLE_ENTRY_SUCCESS: {
+      return {
+        ...state,
+        loading: false,
+        error: false,
+      };
+    }
+
     default:
       return state;
   }
