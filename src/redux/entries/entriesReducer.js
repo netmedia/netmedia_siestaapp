@@ -2,6 +2,9 @@ import {
   ADD_NEW_ENTRY_FAILURE,
   ADD_NEW_ENTRY_REQUEST,
   ADD_NEW_ENTRY_SUCCESS,
+  DELETE_SINGLE_ENTRY_FAILURE,
+  DELETE_SINGLE_ENTRY_REQUEST,
+  DELETE_SINGLE_ENTRY_SUCCESS,
   FETCH_ENTRIES_FAILURE,
   FETCH_ENTRIES_REQUEST,
   FETCH_ENTRIES_SUCCESS,
@@ -57,6 +60,29 @@ export const entriesReducer = (state = initialState, action) => {
         error: true,
         msg: action.payload,
       };
+
+    case DELETE_SINGLE_ENTRY_REQUEST: {
+      return {
+        ...state,
+        loading: true,
+        error: false,
+      };
+    }
+    case DELETE_SINGLE_ENTRY_SUCCESS: {
+      return {
+        ...state,
+        loading: false,
+        error: false,
+      };
+    }
+    case DELETE_SINGLE_ENTRY_FAILURE: {
+      return {
+        ...state,
+        loading: false,
+        error: true,
+        msg: action.payload,
+      };
+    }
     default:
       return state;
   }
