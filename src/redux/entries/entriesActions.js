@@ -142,13 +142,13 @@ export const deleteSingleEntry = (endpoint, userURL) => {
   };
 };
 
-export const updateSingleEntry = (endpoint, updatedEntry, baseURL) => {
+export const updateSingleEntry = (endpoint, updatedEntry, userURL) => {
   return (dispatch) => {
     dispatch(updateSingleEntryRequest());
     axios
       .put(endpoint, updatedEntry)
       .then((response) => console.log(response))
-      .catch((error) => console.log(error))
-      .finally(dispatch(getAllEntries(baseURL)));
+      .catch((error) => console.log(error));
+    // .finally(dispatch(getAllEntries(userURL)));
   };
 };

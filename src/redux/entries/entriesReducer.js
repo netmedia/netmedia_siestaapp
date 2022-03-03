@@ -76,6 +76,7 @@ export const entriesReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         error: false,
+        msg: action.payload,
       };
     }
     case DELETE_SINGLE_ENTRY_FAILURE: {
@@ -109,6 +110,7 @@ export const entriesReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         error: false,
+        msg: action.payload,
       };
     }
 
