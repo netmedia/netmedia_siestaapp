@@ -35,12 +35,12 @@ const Dashboard = () => {
   };
 
   return (
-    <main className="flex flex-col items-start w-8/12 h-screen ml-80 pt-6">
+    <main className="flex flex-col items-start w-8/12 h-screen md:ml-80 pt-6">
       <div className="max-w-6xl flex flex-col gap-8 mr-0">
         <div>
           <Sidebar />
         </div>
-        <div lg={6} className="pt-20">
+        <div lg={6} className="md:pt-20">
           <div className="">
             <h2 className="font-normal text-xl px-5">Dashboard</h2>
             <p className="font-light text-gray-400 text-sm px-5 py-2">
