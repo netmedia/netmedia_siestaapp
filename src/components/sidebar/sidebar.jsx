@@ -2,7 +2,7 @@ import React from "react";
 import Navigation from "./navigation";
 import Logout from "../login/logout";
 
-const menuItems = ["Dashboard", "Entries", "Statistics", "About"];
+const menuItems = ["Dashboard", "Entries", "Statistics", "Calculator", "About"];
 
 const Sidebar = () => {
   return (

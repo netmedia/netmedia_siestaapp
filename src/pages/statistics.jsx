@@ -1,6 +1,5 @@
 import React from "react";
 import Sidebar from "../components/sidebar/sidebar";
-import { Col, Container, Row } from "react-bootstrap";
 import Chart from "../components/dashboard/chart";
 import User from "../components/login/user";
 import HoursOfSleep from "../components/statistics/hoursOfSleep";
