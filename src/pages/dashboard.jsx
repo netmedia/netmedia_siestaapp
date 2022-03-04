@@ -35,27 +35,27 @@ const Dashboard = () => {
   };
 
   return (
-    <Container fluid>
-      <Row className="max-w-6xl flex flex-col gap-8 mr-0">
-        <Col>
+    <main className="flex flex-col items-start w-8/12 h-screen ml-80 pt-6">
+      <div className="max-w-6xl flex flex-col gap-8 mr-0">
+        <div>
           <Sidebar />
-        </Col>
-        <Col lg={6} className="ml-[350px] xl:pt-20">
-          <Row className="">
+        </div>
+        <div lg={6} className="xl:pt-20">
+          <div className="">
             <h2 className="font-normal text-xl px-5">Dashboard</h2>
             <p className="font-light text-gray-400 text-sm px-5 py-2">
               Home / Dashboard
             </p>
             <User />
-          </Row>
-          <Row className="flex items-center justify-between gap-8 flex-nowrap px-5 py-3">
+          </div>
+          <div className="flex flex-wrap items-center gap-5 px-5 py-3">
             {widgetContent.map((items, key) => {
               return <UserWidget items={items} key={key} />;
             })}
-          </Row>
+          </div>
 
-          <Row className="max-w-6xl px-5 xl:pt-10 flex flex-wrap gap-4 items-start justify-between">
-            <Col>
+          <div className="px-5 xl:pt-10 lg:pt-5 flex flex-wrap xl:gap-48 lg:gap-10 items-start">
+            <div>
               <h2 className="font-normal text-xl">Sleep Entries</h2>
               <p className="font-light text-gray-400 text-sm py-2">Activity</p>
               <div className="text-xs px-5 py-2 bg-siesta-grey-light rounded-full flex place-items-center justify-between">
@@ -85,14 +85,14 @@ const Dashboard = () => {
                 </p>
               </div>
               <Chart displayMode={displayMode} />
-            </Col>
-            <Col className="flex flex-col w-3/12 pt-24 gap-1">
+            </div>
+            <div className="flex flex-col w-[200px] lg:pt-24 md:pt-5">
               <UpcomingAlarms />
-            </Col>
-          </Row>
-        </Col>
-      </Row>
-    </Container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
   );
 };
 
