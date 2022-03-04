@@ -21,6 +21,14 @@ const initialState = {
   msg: "",
 };
 
+const toastOptions = {
+  theme: "dark",
+  closeOnClick: "true",
+  pauseOnHover: "false",
+  autoClose: 1500,
+  pauseOnFocusLoss: "false",
+};
+
 export const entriesReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_ENTRIES_REQUEST:
@@ -50,7 +58,7 @@ export const entriesReducer = (state = initialState, action) => {
       };
 
     case ADD_NEW_ENTRY_SUCCESS:
-      toast.success(action.payload);
+      toast.success(`🎉  ${action.payload}`, toastOptions);
       return {
         ...state,
         loading: false,
@@ -59,7 +67,7 @@ export const entriesReducer = (state = initialState, action) => {
       };
 
     case ADD_NEW_ENTRY_FAILURE:
-      toast.error(action.payload);
+      toast.error(`🤦  ${action.payload}`, toastOptions);
       return {
         ...state,
         loading: false,
@@ -75,7 +83,7 @@ export const entriesReducer = (state = initialState, action) => {
       };
     }
     case DELETE_SINGLE_ENTRY_SUCCESS: {
-      toast.success(action.payload);
+      toast.success(`🎉  ${action.payload}`, toastOptions);
       return {
         ...state,
         loading: false,
@@ -84,7 +92,7 @@ export const entriesReducer = (state = initialState, action) => {
       };
     }
     case DELETE_SINGLE_ENTRY_FAILURE: {
-      toast.error(action.payload);
+      toast.error(`🤦  ${action.payload}`, toastOptions);
       return {
         ...state,
         loading: false,
@@ -102,7 +110,7 @@ export const entriesReducer = (state = initialState, action) => {
     }
 
     case UPDATE_SINGLE_ENTRY_FAILURE: {
-      toast.error(action.payload);
+      toast.error(`🤦  ${action.payload}`, toastOptions);
       return {
         ...state,
         loading: false,
@@ -112,7 +120,7 @@ export const entriesReducer = (state = initialState, action) => {
     }
 
     case UPDATE_SINGLE_ENTRY_SUCCESS: {
-      toast.success(action.payload);
+      toast.success(`🎉  ${action.payload}`, toastOptions);
       return {
         ...state,
         loading: false,

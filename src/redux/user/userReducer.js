@@ -1,4 +1,4 @@
-import { LOGIN_ATTEMPT, LOGIN_FAILURE, LOGIN_SUCCESS, LOGOUT } from "./userTypes";
+import { LOGIN_ATTEMPT, LOGIN_FAILURE, LOGIN_SUCCESS, LOGOUT, TOGGLE_CRL_THEME } from "./userTypes";
 import { toast } from "react-toastify";
 
 const savedUserData =
@@ -9,7 +9,7 @@ const initialState = {
   error: false,
   userInfo: savedUserData || null,
   msg: "",
-  colorScheme: "light",
+  darkMode: false,
 };
 
 export const userReducer = (state = initialState, action) => {
@@ -45,6 +45,12 @@ export const userReducer = (state = initialState, action) => {
         loading: false,
         error: false,
         msg: action.payload,
+      };
+
+    case TOGGLE_CRL_THEME:
+      return {
+        ...state,
+        darkMode: !state.darkMode,
       };
 
     default:
