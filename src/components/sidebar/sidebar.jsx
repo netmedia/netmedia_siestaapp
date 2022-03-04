@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Navigation from "./navigation";
 import BurgerNavigation from "./burgerNavigation";
 import Logout from "../login/logout";
-import { HiMenuAlt1 } from "react-icons/hi";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const menuItems = ["Dashboard", "Entries", "Statistics", "Calculator", "About"];
 
@@ -21,17 +21,20 @@ const Sidebar = () => {
   return (
     <>
       <div className="pl-5 md:hidden">
-        <div className="top-2">
-          <HiMenuAlt1
-            onClick={() => setIsClicked(!isClicked)}
-            className={`h-7 transform scale-75 cursor-pointer z-40 transition-all ease-linear duration-500 text-xl text-siesta-grey-dark ${
-              isClicked ? "transform rotate-90" : ""
-            }`}
-          />
+        <div className="top-2 flex flex-row">
+          <div className="no-underline text-siesta-blue-dark font-regular font-bold text-2xl">
+            Siesta.
+          </div>
+          <div className="ml-[200px]">
+            <GiHamburgerMenu
+              onClick={() => setIsClicked(!isClicked)}
+              className={`h-7 transform scale-75 cursor-pointer z-40 transition-all ease-linear duration-200 text-4xl text-siesta-grey-dark ${
+                isClicked ? "transform rotate-90" : ""
+              }`}
+            />
+          </div>
         </div>
-        <div className="no-underline text-white font-regular font-bold text-xl">
-          Siesta.
-        </div>
+
         <BurgerNavigation
           menuItems={menuItems}
           isOpen={isClicked}
