@@ -121,7 +121,7 @@ export const addSingleEntry = (endpoint, options) => {
     axios
       .post(endpoint, options)
       .then((response) => {
-        if (response.statusText === "CREATED") {
+        if (response.statusText === "Created") {
           dispatch(addNewEntrySuccess(`New entry added succesfully`));
         }
       })
