@@ -1,4 +1,4 @@
-import { LOGIN_ATTEMPT, LOGIN_FAILURE, LOGIN_SUCCESS } from "./userTypes";
+import { LOGIN_ATTEMPT, LOGIN_FAILURE, LOGIN_SUCCESS, LOGOUT } from "./userTypes";
 
 export const userLoginAttempt = () => {
   return {
@@ -17,5 +17,12 @@ export const userLoginFailure = (errorMSG) => {
   return {
     type: LOGIN_FAILURE,
     payload: errorMSG,
+  };
+};
+
+export const userLogout = (successMSG) => {
+  return {
+    type: LOGOUT,
+    payload: successMSG,
   };
 };

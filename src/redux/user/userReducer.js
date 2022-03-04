@@ -1,4 +1,4 @@
-import { LOGIN_ATTEMPT, LOGIN_FAILURE, LOGIN_SUCCESS } from "./userTypes";
+import { LOGIN_ATTEMPT, LOGIN_FAILURE, LOGIN_SUCCESS, LOGOUT } from "./userTypes";
 import { toast } from "react-toastify";
 
 const savedUserData =
@@ -7,7 +7,7 @@ const savedUserData =
 const initialState = {
   loading: false,
   error: false,
-  userInfo: savedUserData || undefined,
+  userInfo: savedUserData || null,
   msg: "",
   colorScheme: "light",
 };
@@ -37,6 +37,16 @@ export const userReducer = (state = initialState, action) => {
         error: true,
         msg: action.payload,
       };
+
+    case LOGOUT:
+      toast.success(action.payload);
+      return {
+        ...state,
+        loading: false,
+        error: false,
+        msg: action.payload,
+      };
+
     default:
       return state;
   }
