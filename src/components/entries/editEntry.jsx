@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { updateSingleEntry } from "../../redux/entries/entriesActions";
@@ -8,6 +8,13 @@ const EditEntry = ({ itemToEditID, setShowEditForm }) => {
   );
 
   const dispatch = useDispatch();
+
+  // cleanup //
+  useEffect(() => {
+    return () => setShowEditForm(false);
+    //eslint-disable-next-line
+  }, []);
+  // cleanup //
 
   const [formData, setFormData] = useState({
     title: itemToEdit.title || "",
