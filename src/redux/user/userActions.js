@@ -6,10 +6,10 @@ export const userLoginAttempt = () => {
   };
 };
 
-export const userLoginSuccess = (userInfo) => {
+export const userLoginSuccess = (userInfo, successMSG) => {
   return {
     type: LOGIN_SUCCESS,
-    payload: userInfo,
+    payload: { userInfo, successMSG },
   };
 };
 

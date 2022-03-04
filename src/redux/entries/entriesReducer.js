@@ -12,6 +12,7 @@ import {
   UPDATE_SINGLE_ENTRY_REQUEST,
   UPDATE_SINGLE_ENTRY_SUCCESS,
 } from "./entriesTypes";
+import { toast } from "react-toastify";
 
 const initialState = {
   entries: [],
@@ -49,6 +50,7 @@ export const entriesReducer = (state = initialState, action) => {
       };
 
     case ADD_NEW_ENTRY_SUCCESS:
+      toast.success(action.payload);
       return {
         ...state,
         loading: false,
@@ -57,6 +59,7 @@ export const entriesReducer = (state = initialState, action) => {
       };
 
     case ADD_NEW_ENTRY_FAILURE:
+      toast.error(action.payload);
       return {
         ...state,
         loading: false,
@@ -72,6 +75,7 @@ export const entriesReducer = (state = initialState, action) => {
       };
     }
     case DELETE_SINGLE_ENTRY_SUCCESS: {
+      toast.success(action.payload);
       return {
         ...state,
         loading: false,
@@ -80,6 +84,7 @@ export const entriesReducer = (state = initialState, action) => {
       };
     }
     case DELETE_SINGLE_ENTRY_FAILURE: {
+      toast.error(action.payload);
       return {
         ...state,
         loading: false,
@@ -97,6 +102,7 @@ export const entriesReducer = (state = initialState, action) => {
     }
 
     case UPDATE_SINGLE_ENTRY_FAILURE: {
+      toast.error(action.payload);
       return {
         ...state,
         loading: false,
@@ -106,6 +112,7 @@ export const entriesReducer = (state = initialState, action) => {
     }
 
     case UPDATE_SINGLE_ENTRY_SUCCESS: {
+      toast.success(action.payload);
       return {
         ...state,
         loading: false,

@@ -12,7 +12,7 @@ const Login = () => {
 
   const onSuccess = (googleData) => {
     console.log(googleData);
-    dispatch(userLoginSuccess(googleData.profileObj));
+    dispatch(userLoginSuccess(googleData.profileObj, `Welcome ${googleData.profileObj.givenName}`));
     localStorage.setItem("loginData", JSON.stringify(googleData));
     refreshTokenSetup(googleData);
     history.push("/dashboard");

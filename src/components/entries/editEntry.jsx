@@ -27,15 +27,7 @@ const EditEntry = ({ itemToEditID, setShowEditForm }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setShowEditForm(false);
-    dispatch(
-      updateSingleEntry(
-        `http://localhost:3005/entries/${itemToEdit.id}`,
-        payloadData,
-        `http://localhost:3005/entries?userId=${
-          JSON.parse(localStorage.getItem("loginData")).googleId
-        }`
-      )
-    );
+    dispatch(updateSingleEntry(`http://localhost:3005/entries/${itemToEdit.id}`, payloadData));
   };
 
   return (
