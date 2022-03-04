@@ -6,7 +6,9 @@ import { userLogout } from "../../redux/user/userActions";
 function Logout() {
   let history = useHistory();
   const dispatch = useDispatch();
-  const userName = useSelector((state) => state.user.userInfo.givenName);
+  const userName =
+    useSelector((state) => state.user.userInfo.givenName) ||
+    JSON.parse(localStorage.getItem("loginData")).profileObj.givenName;
   const onSuccess = () => {
     dispatch(userLogout(`bye bye ${userName}`));
     localStorage.removeItem("loginData");
