@@ -136,19 +136,32 @@ export const deleteSingleEntry = (endpoint, userURL) => {
     dispatch(deleteSingleEntryReq());
     axios
       .delete(endpoint)
-      .then((response) => console.log(response))
-      .catch((error) => console.log(error))
+      .then((response) => {
+        if (response.statusText === "OK") {
+          dispatch(deleteSingleEntrySuccess(`Entry deleted succesfully`));
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        dispatch(deleteSingleEntryFailure(`There was an error while processing your request`));
+      })
       .finally(dispatch(getAllEntries(userURL)));
   };
 };
 
-export const updateSingleEntry = (endpoint, updatedEntry, userURL) => {
+export const updateSingleEntry = (endpoint, updatedEntry) => {
   return (dispatch) => {
     dispatch(updateSingleEntryRequest());
     axios
       .put(endpoint, updatedEntry)
-      .then((response) => console.log(response))
-      .catch((error) => console.log(error));
-    // .finally(dispatch(getAllEntries(userURL)));
+      .then((response) => {
+        if (response.statusText === "OK") {
+          dispatch(updateSingleEntrySucces(`Entry updated succesfully`));
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        dispatch(updateSingleEntryFailure(`There was an error while processing your request`));
+      });
   };
 };
