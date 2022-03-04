@@ -130,7 +130,10 @@ const Chart = ({ displayMode }) => {
                     },
                   ]}
                   style={{
-                    data: { stroke: "#166783", strokeWidth: 7 },
+                    data: {
+                      stroke: "#166783",
+                      strokeWidth: 7,
+                    },
                   }}
                 />
               );
