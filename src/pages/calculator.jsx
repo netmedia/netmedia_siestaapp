@@ -8,7 +8,7 @@ function Calculator() {
     <main className="flex flex-col items-start md:ml-80 pt-6">
       <div>
         <Sidebar />
-        <div className="md:pt-20">
+        <div className=" pt-7 md:pt-20">
           <h2 className="font-normal text-xl px-5">Calculator</h2>
           <p className="font-light text-gray-400 text-sm px-5 py-2">
             Home / Calculator

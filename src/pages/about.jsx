@@ -1,15 +1,15 @@
 import React from "react";
 import Sidebar from "../components/sidebar/sidebar";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 
 function About() {
   return (
-    <Container fluid>
+    <main className="flex flex-col items-start md:ml-80 pt-6">
       <Row>
         <Col>
           <Sidebar />
         </Col>
-        <Col className="md:ml-[350px] xl:pt-20 text-3xl block">
+        <Col className="pt-6 xl:pt-20 text-3xl block">
           <Row className="">
             <h2 className="font-normal text-xl px-5">About</h2>
             <p className="font-light text-gray-400 text-sm px-5 py-2">
@@ -35,7 +35,7 @@ function About() {
           </p>
         </Col>
       </Row>
-    </Container>
+    </main>
   );
 }
 
