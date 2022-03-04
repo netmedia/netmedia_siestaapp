@@ -13,20 +13,12 @@ import {
   UPDATE_SINGLE_ENTRY_SUCCESS,
 } from "./entriesTypes";
 import { toast } from "react-toastify";
-
+import { toastOptions } from "../../utils/toastOptions";
 const initialState = {
   entries: [],
   loading: false,
   error: false,
   msg: "",
-};
-
-const toastOptions = {
-  theme: "dark",
-  closeOnClick: "true",
-  pauseOnHover: "false",
-  autoClose: 1500,
-  pauseOnFocusLoss: "false",
 };
 
 export const entriesReducer = (state = initialState, action) => {

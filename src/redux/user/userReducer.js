@@ -1,5 +1,6 @@
 import { LOGIN_ATTEMPT, LOGIN_FAILURE, LOGIN_SUCCESS, LOGOUT, TOGGLE_CRL_THEME } from "./userTypes";
 import { toast } from "react-toastify";
+import { toastOptions } from "../../utils/toastOptions";
 
 const savedUserData =
   localStorage.getItem("loginData") && JSON.parse(localStorage.getItem("loginData"));
@@ -21,7 +22,7 @@ export const userReducer = (state = initialState, action) => {
         error: false,
       };
     case LOGIN_SUCCESS:
-      toast(action.payload.successMSG);
+      toast(action.payload.successMSG, toastOptions);
       return {
         ...state,
         loading: false,
@@ -30,7 +31,7 @@ export const userReducer = (state = initialState, action) => {
         msg: action.payload.successMSG,
       };
     case LOGIN_FAILURE:
-      toast.error(action.payload);
+      toast.error(action.payload, toastOptions);
       return {
         ...state,
         loading: false,
@@ -39,7 +40,7 @@ export const userReducer = (state = initialState, action) => {
       };
 
     case LOGOUT:
-      toast.success(action.payload);
+      toast.success(action.payload, toastOptions);
       return {
         ...state,
         loading: false,
