@@ -40,7 +40,7 @@ const Dashboard = () => {
         <div>
           <Sidebar />
         </div>
-        <div lg={6} className="xl:pt-20">
+        <div lg={6} className="pt-20">
           <div className="">
             <h2 className="font-normal text-xl px-5">Dashboard</h2>
             <p className="font-light text-gray-400 text-sm px-5 py-2">

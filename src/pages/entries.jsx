@@ -12,17 +12,22 @@ const Entries = () => {
   const [itemToEditID, setItemToEditID] = useState("");
 
   return (
-    <main className='flex flex-col items-start w-8/12 h-screen ml-80 pt-6'>
+    <main className="flex flex-col items-start w-8/12 h-screen ml-80 pt-6">
       <Sidebar />
-      <div className='xl:pt-20'>
-        <h2 className='font-normal text-xl px-5'>Entries</h2>
-        <p className='font-light text-gray-400 text-sm px-5 py-2'>Home / Entries</p>
+      <div className="pt-20">
+        <h2 className="font-normal text-xl px-5">Entries</h2>
+        <p className="font-light text-gray-400 text-sm px-5 py-2">
+          Home / Entries
+        </p>
         <User />
       </div>
       {showForm ? (
         <NewEntry setShowForm={setShowForm} />
       ) : showEditForm ? (
-        <EditEntry setShowEditForm={setShowEditForm} itemToEditID={itemToEditID} />
+        <EditEntry
+          setShowEditForm={setShowEditForm}
+          itemToEditID={itemToEditID}
+        />
       ) : (
         <>
           <AddNewBtn setShowForm={setShowForm} />

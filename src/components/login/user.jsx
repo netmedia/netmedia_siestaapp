@@ -10,7 +10,7 @@ function User() {
     JSON.parse(localStorage.getItem("loginData")).profileObj.imageUrl;
 
   return (
-    <div className="text-md hidden md:block absolute right-5 top-5 flex flex-row items-center gap-2">
+    <div className="text-md hidden md:flex absolute right-5 top-5 flex flex-row items-center gap-2">
       <Image
         src={imgUrl}
         className="rounded-full"
