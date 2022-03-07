@@ -33,6 +33,7 @@ module.exports = {
       },
       backgroundImage: (theme) => ({
         splash: "url('/src/assets/splashScreen.jpg')",
+        error: "url('/src/assets/404.jpg')",
       }),
       lineHeight: {
         3: "1.2rem",

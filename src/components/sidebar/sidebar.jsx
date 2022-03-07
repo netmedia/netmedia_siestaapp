@@ -47,10 +47,8 @@ const Sidebar = () => {
             <div className="no-underline text-white font-regular font-bold text-xl pt-20">
               Siesta.
             </div>
-            <div className="">
-              <Navigation menuItems={menuItems} />
-              <Logout />
-            </div>
+            <Navigation menuItems={menuItems} />
+            <Logout />
           </div>
         </main>
       </header>

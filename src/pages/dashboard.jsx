@@ -7,7 +7,6 @@ import Chart from "../components/dashboard/chart";
 import UpcomingAlarms from "../components/dashboard/upcomingAlarms";
 import Sidebar from "../components/sidebar/sidebar";
 import User from "../components/login/user";
-import { Col, Container, Row } from "react-bootstrap";
 
 const Dashboard = () => {
   const [displayMode, setDisplayMode] = useState("latest");

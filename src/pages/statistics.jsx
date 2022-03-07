@@ -9,7 +9,7 @@ function Statistics() {
     <main className="flex flex-col items-start md:ml-80 pt-6">
       <div>
         <Sidebar />
-        <div className="md:pt-20">
+        <div className="pt-7 md:pt-20">
           <h2 className="font-normal text-xl px-5">Statistics</h2>
           <p className="font-light text-gray-400 text-sm px-5 py-2">
             Home / Statistics
@@ -18,13 +18,13 @@ function Statistics() {
         </div>
       </div>
       <div className="flex flex-col md:flex-row">
-        <div className="md:ml-[20px] pt-10 flex flex-col">
+        <div className="ml-5 md:ml-[20px] pt-10 flex flex-col">
           <p className="text-sm font-medium">Last 5 entries</p>
           <Chart displayMode={"latest"} />
           <p className="text-sm font-medium">Average sleep</p>
           <Chart displayMode={"average"} />
         </div>
-        <div className="flex flex-col pt-10 md:pl-48">
+        <div className="flex flex-col pt-10 pl-5 md:pl-48">
           <div className="text-sm font-medium">Hours of sleep: </div>
           <div className="">
             <HoursOfSleep />
