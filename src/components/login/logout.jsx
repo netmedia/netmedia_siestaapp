@@ -24,7 +24,7 @@ function Logout() {
     <div>
       <button
         onClick={signOut}
-        className="pr-9 no-underline block text-white font-regular hover:text-siesta-grey-light"
+        className='pr-9 no-underline block text-white font-regular hover:text-siesta-grey-light'
       >
         Logout
       </button>
