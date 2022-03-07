@@ -7,9 +7,11 @@ import Chart from "../components/dashboard/chart";
 import UpcomingAlarms from "../components/dashboard/upcomingAlarms";
 import Sidebar from "../components/sidebar/sidebar";
 import User from "../components/login/user";
-import { Col, Container, Row } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 const Dashboard = () => {
+  const isUserLoggedIn = useSelector((state) => state.user.isLogged);
+
   const [displayMode, setDisplayMode] = useState("latest");
   const widgetContent = [
     {
