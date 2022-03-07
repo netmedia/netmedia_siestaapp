@@ -1,23 +1,8 @@
 import { VictoryBar, VictoryChart } from "victory";
-import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getAllEntries } from "../../redux/entries/entriesActions";
-
+import { useSelector } from "react-redux";
 const Chart = ({ displayMode }) => {
-  const dispatch = useDispatch();
   const listOfEntries = useSelector((state) => state.entries.entries);
   listOfEntries.sort(sortFunction);
-
-  useEffect(() => {
-    dispatch(
-      getAllEntries(
-        `http://localhost:3005/entries?userId=${
-          JSON.parse(localStorage.getItem("loginData")).googleId
-        }`
-      )
-    );
-    // eslint-disable-next-line
-  }, []);
 
   const hoursOfSleep = (time1, time2) => {
     let hours = 0;
@@ -44,7 +29,6 @@ const Chart = ({ displayMode }) => {
     };
     return new Date(dateString).toLocaleDateString(options);
   };
-  ////////////////////////////////////////////////
 
   switch (displayMode) {
     case "latest":
@@ -63,10 +47,7 @@ const Chart = ({ displayMode }) => {
                   data={[
                     {
                       x: formatDate(value.date),
-                      y: hoursOfSleep(
-                        parseInt(value.startTime),
-                        parseInt(value.endTime)
-                      ),
+                      y: hoursOfSleep(parseInt(value.startTime), parseInt(value.endTime)),
                     },
                   ]}
                   style={{
@@ -92,10 +73,7 @@ const Chart = ({ displayMode }) => {
                 data={[
                   {
                     x: formatDate(value.date).slice(6, 10),
-                    y: hoursOfSleep(
-                      parseInt(value.startTime),
-                      parseInt(value.endTime)
-                    ),
+                    y: hoursOfSleep(parseInt(value.startTime), parseInt(value.endTime)),
                   },
                 ]}
                 style={{
@@ -123,10 +101,7 @@ const Chart = ({ displayMode }) => {
                   data={[
                     {
                       x: formatDate(value.date),
-                      y: hoursOfSleep(
-                        parseInt(value.startTime),
-                        parseInt(value.endTime)
-                      ),
+                      y: hoursOfSleep(parseInt(value.startTime), parseInt(value.endTime)),
                     },
                   ]}
                   style={{
