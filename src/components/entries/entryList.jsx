@@ -13,13 +13,7 @@ const EntryList = ({ setShowEditForm, setItemToEditID }) => {
   }`;
 
   useEffect(() => {
-    dispatch(
-      getAllEntries(
-        `http://localhost:3005/entries?userId=${
-          JSON.parse(localStorage.getItem("loginData")).googleId
-        }`
-      )
-    );
+    dispatch(getAllEntries(userURL));
     // eslint-disable-next-line
   }, []);
 
