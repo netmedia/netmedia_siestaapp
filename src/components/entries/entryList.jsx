@@ -3,14 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { deleteSingleEntry, getAllEntries } from "../../redux/entries/entriesActions";
 import { ImBin } from "react-icons/im";
 import { FiEdit } from "react-icons/fi";
+import { userURL, baseURL } from "../../utils/appUrls";
 
 const EntryList = ({ setShowEditForm, setItemToEditID }) => {
   const dispatch = useDispatch();
   const listOfEntries = useSelector((state) => state.entries.entries);
-  const baseURL = `http://localhost:3005/entries/`;
-  const userURL = `http://localhost:3005/entries?userId=${
-    JSON.parse(localStorage.getItem("loginData")).googleId
-  }`;
 
   useEffect(() => {
     dispatch(getAllEntries(userURL));
