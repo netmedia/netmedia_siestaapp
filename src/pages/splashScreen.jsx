@@ -1,8 +1,7 @@
 import React from "react";
 import Login from "../components/login/login";
 import { Image } from "react-bootstrap";
-import urlImg from "../assets/splashScreen.jpg";
-import mobileImg from "../assets/splashScreenMobile.jpg";
+import urlImg from "../assets/splash.jpeg";
 
 import StarfieldAnimation from "react-starfield-animation";
 
@@ -17,11 +16,8 @@ function SplashScreen() {
             height: "100%",
           }}
         />
-        <div className="hidden md:block w-[100%] h-[100%]">
+        <div className="w-[100%] h-[100%]">
           <Image fluid src={urlImg} className="w-[100%] h-[100%]" />
-        </div>
-        <div className="md:hidden sm:block w-[100%] h-[100%]">
-          <Image fluid src={mobileImg} className="w-[100%] h-[100%]" />
         </div>
       </div>
       <div className="z-20 text-white absolute text-3xl md:text-4xl font-regular font-bold p-10">

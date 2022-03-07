@@ -23,8 +23,8 @@ module.exports = {
 
       colors: {
         "siesta-blue": {
-          light: "#166783",
-          dark: "#092A3B",
+          light: "#013A87",
+          dark: "#010044",
         },
         "siesta-grey": {
           light: "#E5E5E5",
@@ -32,8 +32,8 @@ module.exports = {
         },
       },
       backgroundImage: (theme) => ({
-        splash: "url('/src/assets/splashScreen.jpg')",
-        error404: "url('/src/assets/404.jpg')",
+        splash: "url('/src/assets/splash.jpg')",
+        error404: "url('/src/assets/404.png')",
         error401: "url('/src/assets/401.jpg')",
       }),
       lineHeight: {

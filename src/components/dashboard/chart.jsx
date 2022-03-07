@@ -47,11 +47,14 @@ const Chart = ({ displayMode }) => {
                   data={[
                     {
                       x: formatDate(value.date),
-                      y: hoursOfSleep(parseInt(value.startTime), parseInt(value.endTime)),
+                      y: hoursOfSleep(
+                        parseInt(value.startTime),
+                        parseInt(value.endTime)
+                      ),
                     },
                   ]}
                   style={{
-                    data: { stroke: "#166783", strokeWidth: 7 },
+                    data: { stroke: "#013A87", strokeWidth: 7 },
                   }}
                 />
               );
@@ -73,11 +76,14 @@ const Chart = ({ displayMode }) => {
                 data={[
                   {
                     x: formatDate(value.date).slice(6, 10),
-                    y: hoursOfSleep(parseInt(value.startTime), parseInt(value.endTime)),
+                    y: hoursOfSleep(
+                      parseInt(value.startTime),
+                      parseInt(value.endTime)
+                    ),
                   },
                 ]}
                 style={{
-                  data: { stroke: "#166783", strokeWidth: 7 },
+                  data: { stroke: "#013A87", strokeWidth: 7 },
                 }}
               />
             );
@@ -101,12 +107,15 @@ const Chart = ({ displayMode }) => {
                   data={[
                     {
                       x: formatDate(value.date),
-                      y: hoursOfSleep(parseInt(value.startTime), parseInt(value.endTime)),
+                      y: hoursOfSleep(
+                        parseInt(value.startTime),
+                        parseInt(value.endTime)
+                      ),
                     },
                   ]}
                   style={{
                     data: {
-                      stroke: "#166783",
+                      stroke: "#013A87",
                       strokeWidth: 7,
                     },
                   }}
