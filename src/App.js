@@ -14,18 +14,35 @@ import "react-toastify/dist/ReactToastify.css";
 function App() {
   const isUserLoggedIn = useSelector((state) => state.user.loggedIn);
 
+  const ErrorScreen = () => {
+    return (
+      <>
+        {/* Valentina komponenta */}
+        <h2>You need to login!</h2>
+      </>
+    );
+  };
+
+  const AppContent = () => {
+    return (
+      <>
+        <Route path='/dashboard' exact component={Dashboard} />
+        <Route path='/entries' exact component={Entries} />
+        <Route path='/statistics' exact component={Statistics} />
+        <Route path='/about' exact component={About} />
+        <Route path='/calculator' exact component={Calculator} />
+      </>
+    );
+  };
+
   return (
-    <div className="App">
+    <div className='App'>
       <ToastContainer />
       <Router>
         <Switch>
-          <Route path="/" exact component={SplashScreen} />
-          <Route path="/dashboard" exact component={Dashboard} />
-          <Route path="/entries" exact component={Entries} />
-          <Route path="/statistics" exact component={Statistics} />
-          <Route path="/about" exact component={About} />
-          <Route path="/calculator" exact component={Calculator} />
-          <Route path="*" exact component={Error404} />
+          <Route path='/' exact component={SplashScreen} />
+          {isUserLoggedIn ? <AppContent /> : <ErrorScreen />}
+          <Route path='*' exact component={Error404} />
         </Switch>
       </Router>
     </div>
