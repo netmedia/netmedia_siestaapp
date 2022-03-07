@@ -1,18 +1,7 @@
 import { Image } from "react-bootstrap";
 import { useSelector } from "react-redux";
-// import {useDispatch, useSelector} from "react-redux"
 
 const User = () => {
-  // TODO //
-  // definirat switch kraj profilne slike mozda
-  // na klik minjat darkMode
-
-  // const dispatch = useDispatch()
-
-  // na switch komponenti: onClick(() => {dispatch(toggleClrTheme())})
-
-  // TODO //
-
   const user =
     useSelector((state) => state.user.userInfo.givenName) ||
     JSON.parse(localStorage.getItem("loginData")).profileObj.givenName;

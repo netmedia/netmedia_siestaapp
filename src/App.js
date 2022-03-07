@@ -17,31 +17,32 @@ function App() {
 
   const ErrorScreen = () => {
     return (
-      <>
-        <Route path="*" exact component={Error401} />
-      </>
+      <Switch>
+        <Route path='*' exact component={Error401} />
+      </Switch>
     );
   };
 
   const AppContent = () => {
     return (
-      <>
-        <Route path="/dashboard" exact component={Dashboard} />
-        <Route path="/entries" exact component={Entries} />
-        <Route path="/statistics" exact component={Statistics} />
-        <Route path="/about" exact component={About} />
-        <Route path="/calculator" exact component={Calculator} />
-        <Route path="*" exact component={Error404} />
-      </>
+      <Switch>
+        <Route path='/dashboard' exact component={Dashboard} />
+        <Route path='/entries' exact component={Entries} />
+        <Route path='/statistics' exact component={Statistics} />
+        <Route path='/about' exact component={About} />
+        <Route path='/calculator' exact component={Calculator} />
+        <Route exact path='*' component={Error404} />
+      </Switch>
     );
   };
 
   return (
-    <div className="App">
+    <div className='App'>
       <ToastContainer />
       <Router>
         <Switch>
-          <Route path="/" exact component={SplashScreen} />
+          <Route path='/' exact component={SplashScreen} />
+
           {isUserLoggedIn ? <AppContent /> : <ErrorScreen />}
         </Switch>
       </Router>
