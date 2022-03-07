@@ -7,6 +7,7 @@ import About from "./pages/about";
 import Calculator from "./pages/calculator";
 import SplashScreen from "./pages/splashScreen";
 import Error404 from "./pages/error404";
+import Error401 from "./pages/error401";
 import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -17,8 +18,7 @@ function App() {
   const ErrorScreen = () => {
     return (
       <>
-        {/* Valentina komponenta */}
-        <h2>You need to login!</h2>
+        <Route path="*" exact component={Error401} />
       </>
     );
   };
@@ -26,23 +26,23 @@ function App() {
   const AppContent = () => {
     return (
       <>
-        <Route path='/dashboard' exact component={Dashboard} />
-        <Route path='/entries' exact component={Entries} />
-        <Route path='/statistics' exact component={Statistics} />
-        <Route path='/about' exact component={About} />
-        <Route path='/calculator' exact component={Calculator} />
+        <Route path="/dashboard" exact component={Dashboard} />
+        <Route path="/entries" exact component={Entries} />
+        <Route path="/statistics" exact component={Statistics} />
+        <Route path="/about" exact component={About} />
+        <Route path="/calculator" exact component={Calculator} />
+        <Route path="*" exact component={Error404} />
       </>
     );
   };
 
   return (
-    <div className='App'>
+    <div className="App">
       <ToastContainer />
       <Router>
         <Switch>
-          <Route path='/' exact component={SplashScreen} />
+          <Route path="/" exact component={SplashScreen} />
           {isUserLoggedIn ? <AppContent /> : <ErrorScreen />}
-          <Route path='*' exact component={Error404} />
         </Switch>
       </Router>
     </div>

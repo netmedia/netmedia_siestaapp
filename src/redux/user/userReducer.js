@@ -18,7 +18,7 @@ const initialState = {
   userInfo: savedUserData || null,
   msg: "",
   darkMode: false,
-  loggedIn: false,
+  loggedIn: localStorage.getItem("loginData") || false,
 };
 
 export const userReducer = (state = initialState, action) => {
