@@ -1,9 +1,16 @@
-import { LOGIN_ATTEMPT, LOGIN_FAILURE, LOGIN_SUCCESS, LOGOUT, TOGGLE_CRL_THEME } from "./userTypes";
+import {
+  LOGIN_ATTEMPT,
+  LOGIN_FAILURE,
+  LOGIN_SUCCESS,
+  LOGOUT,
+  TOGGLE_CRL_THEME,
+} from "./userTypes";
 import { toast } from "react-toastify";
 import { toastOptions } from "../../utils/toastOptions";
 
 const savedUserData =
-  localStorage.getItem("loginData") && JSON.parse(localStorage.getItem("loginData"));
+  localStorage.getItem("loginData") &&
+  JSON.parse(localStorage.getItem("loginData"));
 
 const initialState = {
   loading: false,
@@ -11,7 +18,7 @@ const initialState = {
   userInfo: savedUserData || null,
   msg: "",
   darkMode: false,
-  loggedIn: savedUserData.googleId || false,
+  loggedIn: localStorage.getItem("loginData") || false,
 };
 
 export const userReducer = (state = initialState, action) => {

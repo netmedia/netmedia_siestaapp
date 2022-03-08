@@ -6,14 +6,19 @@ import {
 } from "../../redux/entries/entriesActions";
 import { ImBin } from "react-icons/im";
 import { FiEdit } from "react-icons/fi";
-import { userURL, baseURL } from "../../utils/appUrls";
 
 const EntryList = ({ setShowEditForm, setItemToEditID }) => {
   const dispatch = useDispatch();
   const listOfEntries = useSelector((state) => state.entries.entries);
 
   useEffect(() => {
-    dispatch(getAllEntries(userURL));
+    dispatch(
+      getAllEntries(
+        `http://localhost:3005/entries?userId=${
+          JSON.parse(localStorage.getItem("loginData")).googleId
+        }`
+      )
+    );
     // eslint-disable-next-line
   }, []);
 
@@ -38,7 +43,14 @@ const EntryList = ({ setShowEditForm, setItemToEditID }) => {
   };
 
   const handleDelete = (entryID) => {
-    dispatch(deleteSingleEntry(`${baseURL}${entryID}`, `${userURL}`));
+    dispatch(
+      deleteSingleEntry(
+        `http://localhost:3005/entries/${entryID}`,
+        `http://localhost:3005/entries?userId=${
+          JSON.parse(localStorage.getItem("loginData")).googleId
+        }`
+      )
+    );
   };
 
   return (

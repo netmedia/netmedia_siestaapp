@@ -1,14 +1,19 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllEntries } from "../../redux/entries/entriesActions";
-import { userURL } from "../../utils/appUrls";
+
 const UpcomingAlarms = () => {
   const dispatch = useDispatch();
   const listOfEntries = useSelector((state) => state.entries.entries);
 
   useEffect(() => {
-    dispatch(getAllEntries(userURL));
-
+    dispatch(
+      getAllEntries(
+        `http://localhost:3005/entries?userId=${
+          JSON.parse(localStorage.getItem("loginData")).googleId
+        }`
+      )
+    );
     // eslint-disable-next-line
   }, []);
 

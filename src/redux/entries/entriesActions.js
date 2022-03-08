@@ -143,9 +143,21 @@ export const deleteSingleEntry = (endpoint, userURL) => {
       })
       .catch((error) => {
         console.log(error);
-        dispatch(deleteSingleEntryFailure(`There was an error while processing your request`));
+        dispatch(
+          deleteSingleEntryFailure(
+            `There was an error while processing your request`
+          )
+        );
       })
-      .finally(dispatch(getAllEntries(userURL)));
+      .finally(
+        dispatch(
+          getAllEntries(
+            `http://localhost:3005/entries?userId=${JSON.parse(
+              localStorage.getItem("loginData").profileObj.googleId
+            )}`
+          )
+        )
+      );
   };
 };
 
@@ -161,7 +173,11 @@ export const updateSingleEntry = (endpoint, updatedEntry) => {
       })
       .catch((error) => {
         console.log(error);
-        dispatch(updateSingleEntryFailure(`There was an error while processing your request`));
+        dispatch(
+          updateSingleEntryFailure(
+            `There was an error while processing your request`
+          )
+        );
       });
   };
 };
