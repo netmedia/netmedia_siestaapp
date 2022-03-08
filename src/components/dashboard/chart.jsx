@@ -1,5 +1,6 @@
 import { VictoryBar, VictoryChart } from "victory";
 import { useSelector } from "react-redux";
+
 const Chart = ({ displayMode }) => {
   const listOfEntries = useSelector((state) => state.entries.entries);
   listOfEntries.sort(sortFunction);

@@ -5,7 +5,7 @@ import { userLogout } from "../../redux/user/userActions";
 
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
-function Logout() {
+const Logout = () => {
   let history = useHistory();
   const dispatch = useDispatch();
   const loginData = JSON.parse(localStorage.getItem("loginData"));
@@ -30,6 +30,6 @@ function Logout() {
       </button>
     </div>
   );
-}
+};
 
 export default Logout;

@@ -4,6 +4,7 @@ import { ImCancelCircle } from "react-icons/im";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { updateSingleEntry } from "../../redux/entries/entriesActions";
+
 const EditEntry = ({ itemToEditID, setShowEditForm }) => {
   const itemToEdit = useSelector((state) =>
     state.entries.entries.find((id) => id.id === itemToEditID)
