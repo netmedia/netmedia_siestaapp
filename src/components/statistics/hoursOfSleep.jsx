@@ -24,15 +24,21 @@ const HoursOfSleep = () => {
   };
 
   return (
-    <div className='flex flex-col flex-wrap gap-5 p-5'>
+    <div className="flex flex-col flex-wrap gap-5 p-0">
       {listOfEntries.map((value, key) => {
         return (
-          <div key={key} className=''>
-            <div className='flex gap-8 place-items-start justify-between py-4 text-sm w-[250px]'>
+          <div key={key} className="flex justify-center xl:justify-start">
+            <div className="flex justify-center xl:justify-start gap-8 py-4 text-sm w-[250px]">
               <div>
-                <p className='font-bold text-siesta-grey-dark'>{formatDate(value.date)}</p>
-                <p className='font-bold text-siesta-blue-light'>
-                  {hoursOfSleep(parseInt(value.startTime), parseInt(value.endTime))} hours of sleep
+                <p className="font-bold text-siesta-grey-dark">
+                  {formatDate(value.date)}
+                </p>
+                <p className="font-bold text-siesta-blue-light">
+                  {hoursOfSleep(
+                    parseInt(value.startTime),
+                    parseInt(value.endTime)
+                  )}{" "}
+                  hours of sleep
                 </p>
               </div>
             </div>

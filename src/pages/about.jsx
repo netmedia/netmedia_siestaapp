@@ -16,7 +16,7 @@ function About() {
               Home / About
             </p>
           </Row>
-          <p className="text-sm pl-5 pr-16 flex flex-wrap">
+          <p className="text-sm pl-5 pr-5 md:pr-16 flex flex-wrap">
             Sleep is an essential function that allows your body and mind to
             recharge, leaving you refreshed and alert when you wake up. Healthy
             sleep also helps the body remain healthy and stave off diseases.

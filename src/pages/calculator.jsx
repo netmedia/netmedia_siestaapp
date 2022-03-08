@@ -16,7 +16,7 @@ function Calculator() {
           <User />
         </div>
       </div>
-      <div className="w-full pt-20 pl-5">
+      <div className="w-full pt-20">
         <SleepInfo />
       </div>
     </main>

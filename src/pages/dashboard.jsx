@@ -34,7 +34,7 @@ const Dashboard = () => {
   };
 
   return (
-    <main className="flex flex-col items-start w-8/12 h-screen md:ml-80 pt-6">
+    <main className="flex flex-col items-start h-screen md:ml-80 pt-6">
       <div className="max-w-6xl flex flex-col gap-8 mr-0">
         <div>
           <Sidebar />
@@ -47,13 +47,13 @@ const Dashboard = () => {
             </p>
             <User />
           </div>
-          <div className="flex flex-wrap items-center gap-5 px-5 py-3">
+          <div className="flex flex-wrap justify-center lg:justify-start items-center gap-5 px-5 py-3">
             {widgetContent.map((items, key) => {
               return <UserWidget items={items} key={key} />;
             })}
           </div>
 
-          <div className="px-5 xl:pt-10 lg:pt-5 flex flex-wrap xl:gap-48 lg:gap-10 items-start">
+          <div className="px-5 xl:pt-10 lg:pt-5 flex flex-wrap xl:gap-48 lg:gap-10 items-start justify-center lg:justify-start">
             <div>
               <h2 className="font-normal text-xl">Sleep Entries</h2>
               <p className="font-light text-gray-400 text-sm py-2">Activity</p>

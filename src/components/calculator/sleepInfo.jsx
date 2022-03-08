@@ -21,9 +21,9 @@ const SleepInfo = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col gap-10 place-items-center justify-between w-11/12 lg:w-2/3 bg-siesta-grey-light px-4 py-8 text-sm rounded-xl"
+      className="flex flex-col gap-10 justify-center md:justify-start w-full md:w-[500px] bg-siesta-grey-light py-8 text-sm rounded-xl"
     >
-      <div className="flex flex-col w-full gap-4">
+      <div className="flex flex-col w-full gap-4 px-4">
         <label htmlFor="hours" className="text-siesta-blue-light">
           How many hours of sleep did you get?
         </label>
@@ -39,7 +39,7 @@ const SleepInfo = () => {
         />
       </div>
 
-      <div className="flex flex-col w-full gap-4">
+      <div className="flex flex-col w-full gap-4 px-4">
         <label htmlFor="ideal" className="text-siesta-blue-light">
           How much sleep is ideal per night?
         </label>
@@ -53,8 +53,8 @@ const SleepInfo = () => {
         />
       </div>
 
-      <div className="flex gap-4 place-items-center justify-between">
-        <button className="cursor:pointer bg-gradient-to-b from-siesta-blue-dark to-siesta-blue-light rounded-xl px-4 py-2 text-white font-normal flex items-center  gap-2">
+      <div className="flex gap-4 justify-center">
+        <button className="cursor:pointer bg-gradient-to-b from-siesta-blue-dark to-siesta-blue-light rounded-xl px-4 py-2 text-white font-normal flex items-center gap-2">
           Calculate <AiFillPlusCircle className="fill-white w-8 h-8" />
         </button>
       </div>

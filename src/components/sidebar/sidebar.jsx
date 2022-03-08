@@ -21,25 +21,25 @@ const Sidebar = () => {
   return (
     <>
       <div className="pl-5 md:hidden">
-        <div className="top-2 flex flex-row">
-          <div className="no-underline text-siesta-blue-dark font-regular font-bold text-2xl">
+        <div className="top-2 flex justify-between items-center flex-row">
+          <div className="no-underline text-siesta-blue-light font-regular font-bold text-2xl">
             Siesta.
           </div>
-          <div className="ml-[200px]">
-            <GiHamburgerMenu
-              onClick={() => setIsClicked(!isClicked)}
-              className={`h-7 transform scale-75 cursor-pointer z-40 transition-all ease-linear duration-200 text-4xl text-siesta-grey-dark ${
-                isClicked ? "transform rotate-90" : ""
-              }`}
-            />
-          </div>
+          <GiHamburgerMenu
+            onClick={() => setIsClicked(!isClicked)}
+            className={`fixed right-3 top-5 h-7 transform scale-75 cursor-pointer z-50 transition-all ease-linear duration-200 text-4xl text-siesta-blue-light ${
+              isClicked ? "transform rotate-90 fill-white" : ""
+            }`}
+          />
         </div>
-
-        <BurgerNavigation
-          menuItems={menuItems}
-          isOpen={isClicked}
-          setIsOpen={setIsClicked}
-        />
+        <div className="ml-[200px]">
+          <BurgerNavigation
+            menuItems={menuItems}
+            isOpen={isClicked}
+            setIsOpen={setIsClicked}
+            className="z-10"
+          />
+        </div>
       </div>
       <header className="hidden md:block p-5 top-5 left-5 bottom-5 w-[270px] overflow-x-hidden rounded-3xl bg-gradient-to-b from-siesta-blue-dark to-siesta-blue-light fixed z-1">
         <main>

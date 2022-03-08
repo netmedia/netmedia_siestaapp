@@ -17,15 +17,21 @@ function Statistics() {
           <User />
         </div>
       </div>
-      <div className="flex flex-col md:flex-row">
+      <div className="flex flex-col flex-wrap justify-center md:flex-row">
         <div className="ml-5 md:ml-[20px] pt-10 flex flex-col">
-          <p className="text-sm font-medium">Last 5 entries</p>
+          <p className="text-sm font-medium uppercase flex justify-center">
+            Last 5 entries
+          </p>
           <Chart displayMode={"latest"} />
-          <p className="text-sm font-medium">Average sleep</p>
+          <p className="text-sm font-medium uppercase flex justify-center">
+            Average sleep
+          </p>
           <Chart displayMode={"average"} />
         </div>
-        <div className="flex flex-col pt-10 pl-5 md:pl-48">
-          <div className="text-sm font-medium">Hours of sleep: </div>
+        <div className="flex flex-col justify-center pt-10 p-5 xl:pl-48">
+          <div className="text-sm font-medium uppercase flex justify-center xl:justify-start">
+            Hours of sleep{" "}
+          </div>
           <div className="">
             <HoursOfSleep />
           </div>
