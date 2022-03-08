@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { AiFillPlusCircle } from "react-icons/ai";
+import { ImCancelCircle } from "react-icons/im";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { updateSingleEntry } from "../../redux/entries/entriesActions";
@@ -111,18 +113,16 @@ const EditEntry = ({ itemToEditID, setShowEditForm }) => {
 
       <div className="flex gap-4 place-items-center justify-between">
         <button className="cursor:pointer bg-gradient-to-b from-siesta-blue-dark to-siesta-blue-light rounded-xl px-4 py-2 text-white font-normal flex items-center  gap-2">
-          Submit
-          {/* Submit <AiFillPlusCircle className='fill-white w-8 h-8' /> */}
+          Submit <AiFillPlusCircle className="fill-white w-8 h-8" />
         </button>
         <button
           role={"none"}
           onClick={() => {
             setShowEditForm(false);
           }}
-          className="cursor:pointer bg-red-600 rounded-xl px-4 py-2 text-white font-normal flex items-center  gap-2"
+          className="cursor:pointer bg-red-600 rounded-xl px-4 py-2 text-white font-normal flex items-center gap-2"
         >
-          Cancel
-          {/* Cancel <ImBin /> */}
+          Cancel <ImCancelCircle className="fill-white w-8 h-8" />
         </button>
       </div>
     </form>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { AiFillPlusCircle } from "react-icons/ai";
-import { ImBin } from "react-icons/im";
+import { ImCancelCircle } from "react-icons/im";
 import { addSingleEntry } from "../../redux/entries/entriesActions";
 import { useDispatch } from "react-redux";
 
@@ -114,7 +114,7 @@ const NewEntry = ({ setShowForm }) => {
           }}
           className="cursor:pointer bg-red-600 rounded-xl px-4 py-2 text-white font-normal flex items-center gap-2"
         >
-          Cancel <ImBin />
+          Cancel <ImCancelCircle className="fill-white w-8 h-8" />
         </button>
       </div>
     </form>
