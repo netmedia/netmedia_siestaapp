@@ -120,9 +120,9 @@ const EditEntry = ({ itemToEditID, setShowEditForm }) => {
           onClick={() => {
             setShowEditForm(false);
           }}
-          className="cursor:pointer bg-red-600 rounded-xl px-4 py-2 text-white font-normal flex items-center gap-2"
+          className="cursor:pointer bg-red-700 rounded-xl px-4 py-2 text-white font-normal flex items-center gap-2"
         >
-          Cancel <ImCancelCircle className="fill-white w-8 h-8" />
+          Cancel <ImCancelCircle className="fill-white w-7 h-7" />
         </button>
       </div>
     </form>

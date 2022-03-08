@@ -81,7 +81,7 @@ const EntryList = ({ setShowEditForm, setItemToEditID }) => {
                       parseInt(value.startTime),
                       parseInt(value.endTime)
                     ) < 8
-                      ? "font-bold text-red-600"
+                      ? "font-bold text-red-700"
                       : "font-bold text-green-700"
                   }`}
                 >
@@ -103,7 +103,7 @@ const EntryList = ({ setShowEditForm, setItemToEditID }) => {
                   Edit <FiEdit />
                 </button>
                 <button
-                  className="cursor:pointer bg-red-600 rounded-xl px-4 py-2 text-white font-normal flex items-center gap-2"
+                  className="cursor:pointer bg-red-700 rounded-xl px-4 py-2 text-white font-normal flex items-center gap-2"
                   onClick={() => {
                     handleDelete(value.id);
                   }}

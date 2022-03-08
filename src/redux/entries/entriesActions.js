@@ -149,15 +149,7 @@ export const deleteSingleEntry = (endpoint, userURL) => {
           )
         );
       })
-      .finally(
-        dispatch(
-          getAllEntries(
-            `http://localhost:3005/entries?userId=${JSON.parse(
-              localStorage.getItem("loginData").profileObj.googleId
-            )}`
-          )
-        )
-      );
+      .finally(dispatch(getAllEntries(userURL)));
   };
 };
 
