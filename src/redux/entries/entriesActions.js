@@ -28,7 +28,7 @@ export const fetchEntriesFailure = (error) => {
   };
 };
 
-export const fetchEntriesSucces = (entries) => {
+export const fetchEntriesSuccess = (entries) => {
   return {
     type: FETCH_ENTRIES_SUCCESS,
     payload: entries,
@@ -81,7 +81,7 @@ export const updateSingleEntryRequest = () => {
   };
 };
 
-export const updateSingleEntrySucces = (successMSG) => {
+export const updateSingleEntrySuccess = (successMSG) => {
   return {
     type: UPDATE_SINGLE_ENTRY_SUCCESS,
     payload: successMSG,
@@ -106,7 +106,7 @@ export const getAllEntries = (endpoint) => {
           dispatch(fetchEntriesFailure(errorMSG));
         } else {
           const entriesList = result.data;
-          dispatch(fetchEntriesSucces(entriesList));
+          dispatch(fetchEntriesSuccess(entriesList));
         }
       })
       .catch((error) => {
@@ -122,7 +122,7 @@ export const addSingleEntry = (endpoint, options) => {
       .post(endpoint, options)
       .then((response) => {
         if (response.statusText === "Created") {
-          dispatch(addNewEntrySuccess(`New entry added succesfully`));
+          dispatch(addNewEntrySuccess(`New entry added successfully`));
         }
       })
       .catch((error) => {
@@ -138,7 +138,7 @@ export const deleteSingleEntry = (endpoint, userURL) => {
       .delete(endpoint)
       .then((response) => {
         if (response.statusText === "OK") {
-          dispatch(deleteSingleEntrySuccess(`Entry deleted succesfully`));
+          dispatch(deleteSingleEntrySuccess(`Entry deleted successfully`));
         }
       })
       .catch((error) => {
@@ -160,7 +160,7 @@ export const updateSingleEntry = (endpoint, updatedEntry) => {
       .put(endpoint, updatedEntry)
       .then((response) => {
         if (response.statusText === "OK") {
-          dispatch(updateSingleEntrySucces(`Entry updated succesfully`));
+          dispatch(updateSingleEntrySuccess(`Entry updated successfully`));
         }
       })
       .catch((error) => {
