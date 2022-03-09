@@ -53,7 +53,7 @@ const SleepInfo = () => {
         </label>
         <input
           onChange={(e) => {
-            setTimeSheet({ ...timeSheet, idealHours: e.target.value });
+            setTimeSheet({ ...timeSheet, idealHours: Number(e.target.value) });
           }}
           value={timeSheet.idealHours}
           type='number'
