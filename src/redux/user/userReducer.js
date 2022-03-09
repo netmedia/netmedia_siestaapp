@@ -22,7 +22,7 @@ export const userReducer = (state = initialState, action) => {
         error: false,
       };
     case LOGIN_SUCCESS:
-      toast(action.payload.successMSG, toastOptions);
+      toast.success(action.payload.successMSG, toastOptions);
       return {
         ...state,
         loading: false,

@@ -6,7 +6,7 @@ import { toastOptions } from "../../utils/toastOptions";
 const SleepInfo = () => {
   const [timeSheet, setTimeSheet] = useState({
     hours: 0,
-    idealHours: 8,
+    idealHours: 0,
   });
 
   const sleepInfoToastOptions = { ...toastOptions, position: "top-center", theme: "light" };
@@ -52,7 +52,9 @@ const SleepInfo = () => {
           How much sleep is ideal per night?
         </label>
         <input
-          onChange={(e) => setTimeSheet({ ...timeSheet, idealHours: Number(e.target.value) })}
+          onChange={(e) => {
+            setTimeSheet({ ...timeSheet, idealHours: e.target.value });
+          }}
           value={timeSheet.idealHours}
           type='number'
           name='ideal'

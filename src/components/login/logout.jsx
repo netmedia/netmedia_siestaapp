@@ -10,7 +10,7 @@ const Logout = () => {
   const dispatch = useDispatch();
   const loginData = JSON.parse(localStorage.getItem("loginData"));
   const onLogoutSuccess = () => {
-    dispatch(userLogout(`bye bye ${loginData.profileObj.givenName}`));
+    dispatch(userLogout(`👋  bye bye ${loginData.profileObj.givenName}`));
     localStorage.removeItem("loginData");
     history.push("/");
   };
@@ -24,7 +24,7 @@ const Logout = () => {
     <div>
       <button
         onClick={signOut}
-        className="pr-9 no-underline block text-white font-regular hover:text-siesta-grey-light"
+        className='pr-9 no-underline block text-white font-regular hover:text-siesta-grey-light'
       >
         Logout
       </button>

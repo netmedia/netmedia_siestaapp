@@ -11,6 +11,7 @@ import Error401 from "./pages/error401";
 import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Flip } from "react-toastify";
 
 function App() {
   const isUserLoggedIn = useSelector((state) => state.user.loggedIn);
@@ -18,7 +19,7 @@ function App() {
   const ErrorScreen = () => {
     return (
       <Switch>
-        <Route path="*" exact component={Error401} />
+        <Route path='*' exact component={Error401} />
       </Switch>
     );
   };
@@ -26,22 +27,22 @@ function App() {
   const AppContent = () => {
     return (
       <Switch>
-        <Route path="/dashboard" exact component={Dashboard} />
-        <Route path="/entries" exact component={Entries} />
-        <Route path="/statistics" exact component={Statistics} />
-        <Route path="/about" exact component={About} />
-        <Route path="/calculator" exact component={Calculator} />
-        <Route exact path="*" component={Error404} />
+        <Route path='/dashboard' exact component={Dashboard} />
+        <Route path='/entries' exact component={Entries} />
+        <Route path='/statistics' exact component={Statistics} />
+        <Route path='/about' exact component={About} />
+        <Route path='/calculator' exact component={Calculator} />
+        <Route exact path='*' component={Error404} />
       </Switch>
     );
   };
 
   return (
-    <div className="App">
-      <ToastContainer />
+    <div className='App'>
+      <ToastContainer transition={Flip} />
       <Router>
         <Switch>
-          <Route path="/" exact component={SplashScreen} />
+          <Route path='/' exact component={SplashScreen} />
 
           {isUserLoggedIn ? <AppContent /> : <ErrorScreen />}
         </Switch>
