@@ -1,16 +1,15 @@
-import { LOGIN_ATTEMPT, LOGIN_FAILURE, LOGIN_SUCCESS, LOGOUT, TOGGLE_CRL_THEME } from "./userTypes";
-import { toast } from "react-toastify";
-import { toastOptions } from "../../utils/toastOptions";
-
-const savedUserData = JSON.parse(localStorage.getItem("loginData"));
+import { LOGIN_ATTEMPT, LOGIN_FAILURE, LOGIN_SUCCESS, LOGOUT } from './userTypes';
+import { toast } from 'react-toastify';
+import { toastOptions } from '../../utils/toastOptions';
+import { deleteFromLocal, getFromLocal, saveToLocal } from '../../utils/localStorage';
 
 const initialState = {
   loading: false,
   error: false,
-  userInfo: savedUserData?.profileObj || {},
-  msg: "",
-  darkMode: false,
-  loggedIn: savedUserData?.googleId || false,
+  credentials: getFromLocal('loginData') || {
+    loggedIn: false,
+  },
+  msg: '',
 };
 
 export const userReducer = (state = initialState, action) => {
@@ -23,13 +22,13 @@ export const userReducer = (state = initialState, action) => {
       };
     case LOGIN_SUCCESS:
       toast.success(action.payload.successMSG, toastOptions);
+      saveToLocal('loginData', { ...action.payload.userInfo, loggedIn: true });
       return {
         ...state,
         loading: false,
         error: false,
-        userInfo: action.payload.userInfo,
+        credentials: { ...action.payload.userInfo, loggedIn: true },
         msg: action.payload.successMSG,
-        loggedIn: true,
       };
     case LOGIN_FAILURE:
       toast.error(action.payload, toastOptions);
@@ -42,18 +41,13 @@ export const userReducer = (state = initialState, action) => {
 
     case LOGOUT:
       toast.success(action.payload, toastOptions);
+      deleteFromLocal('loginData');
       return {
         ...state,
         loading: false,
         error: false,
         msg: action.payload,
-        loggedIn: false,
-      };
-
-    case TOGGLE_CRL_THEME:
-      return {
-        ...state,
-        darkMode: !state.darkMode,
+        credentials: { loggedIn: false },
       };
 
     default:

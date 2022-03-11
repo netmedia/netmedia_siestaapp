@@ -1,18 +1,18 @@
-import { useHistory } from "react-router-dom";
-import { useGoogleLogout } from "react-google-login";
-import { useDispatch } from "react-redux";
-import { userLogout } from "../../redux/user/userActions";
+import { useHistory } from 'react-router-dom';
+import { useGoogleLogout } from 'react-google-login';
+import { useDispatch } from 'react-redux';
+import { userLogout } from '../../redux/user/userActions';
+import { getFromLocal } from '../../utils/localStorage';
 
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
 const Logout = () => {
   let history = useHistory();
   const dispatch = useDispatch();
-  const loginData = JSON.parse(localStorage.getItem("loginData"));
+  const loginData = getFromLocal('loginData');
   const onLogoutSuccess = () => {
-    dispatch(userLogout(`👋  bye bye ${loginData.profileObj.givenName}`));
-    localStorage.removeItem("loginData");
-    history.push("/");
+    dispatch(userLogout(`👋  bye bye ${loginData.givenName}`));
+    history.push('/');
   };
 
   const { signOut } = useGoogleLogout({

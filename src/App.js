@@ -1,20 +1,20 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Dashboard from "./pages/dashboard";
-import Entries from "./pages/entries";
-import Statistics from "./pages/statistics";
-import About from "./pages/about";
-import Calculator from "./pages/calculator";
-import SplashScreen from "./pages/splashScreen";
-import Error404 from "./pages/error404";
-import Error401 from "./pages/error401";
-import { useSelector } from "react-redux";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { Flip } from "react-toastify";
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Dashboard from './pages/dashboard';
+import Entries from './pages/entries';
+import Statistics from './pages/statistics';
+import About from './pages/about';
+import Calculator from './pages/calculator';
+import SplashScreen from './pages/splashScreen';
+import Error404 from './pages/error404';
+import Error401 from './pages/error401';
+import { useSelector } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Flip } from 'react-toastify';
 
 function App() {
-  const isUserLoggedIn = useSelector((state) => state.user.loggedIn);
+  const isUserLoggedIn = useSelector((state) => state.user.credentials.loggedIn);
 
   const ErrorScreen = () => {
     return (
