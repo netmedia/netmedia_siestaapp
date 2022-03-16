@@ -53,6 +53,7 @@ const NewEntry = ({ setShowForm }) => {
           type='text'
           name='title'
           id='title'
+          required
           className='rounded-xl transition-all outline-1 p-2 focus:outline-1 outline-siesta-blue-light'
         />
       </div>
