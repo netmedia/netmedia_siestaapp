@@ -30,6 +30,12 @@ const NewEntry = ({ setShowForm }) => {
     setShowForm(false);
   };
 
+  const currentDate = () => {
+    const date = new Date(Date.now()).toISOString().slice(0, 10);
+
+    return date;
+  };
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -60,6 +66,7 @@ const NewEntry = ({ setShowForm }) => {
           value={formData.date}
           type='date'
           name='date'
+          max={currentDate(Date.now())}
           id='date'
           className='rounded-xl p-2'
         />
@@ -86,7 +93,9 @@ const NewEntry = ({ setShowForm }) => {
           Sleep end
         </label>
         <input
-          onChange={(e) => setFormData({ ...formData, endTime: e.target.value })}
+          onChange={(e) =>
+            setFormData({ ...formData, endTime: e.target.value })
+          }
           value={formData.endTime}
           type='time'
           name='sleep-end'
