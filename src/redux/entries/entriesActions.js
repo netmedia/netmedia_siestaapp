@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 import {
   ADD_NEW_ENTRY_REQUEST,
@@ -13,7 +13,7 @@ import {
   UPDATE_SINGLE_ENTRY_REQUEST,
   UPDATE_SINGLE_ENTRY_SUCCESS,
   UPDATE_SINGLE_ENTRY_FAILURE,
-} from "./entriesTypes";
+} from './entriesTypes';
 
 export const fetchEntriesReq = () => {
   return {
@@ -101,7 +101,7 @@ export const getAllEntries = (endpoint) => {
     axios
       .get(endpoint)
       .then((result) => {
-        if (result.statusText !== "OK") {
+        if (result.statusText !== 'OK') {
           const errorMSG = `There was an error while processing your request`;
           dispatch(fetchEntriesFailure(errorMSG));
         } else {
@@ -121,7 +121,7 @@ export const addSingleEntry = (endpoint, options) => {
     axios
       .post(endpoint, options)
       .then((response) => {
-        if (response.statusText === "Created") {
+        if (response.statusText === 'Created') {
           dispatch(addNewEntrySuccess(`New entry added successfully`));
         }
       })
@@ -137,19 +137,19 @@ export const deleteSingleEntry = (endpoint, userURL) => {
     axios
       .delete(endpoint)
       .then((response) => {
-        if (response.statusText === "OK") {
+        if (response.statusText === 'OK') {
+          console.log('pass');
           dispatch(deleteSingleEntrySuccess(`Entry deleted successfully`));
         }
       })
       .catch((error) => {
         console.log(error);
-        dispatch(
-          deleteSingleEntryFailure(
-            `There was an error while processing your request`
-          )
-        );
+        dispatch(deleteSingleEntryFailure(`There was an error while processing your request`));
       })
-      .finally(dispatch(getAllEntries(userURL)));
+      .finally(() => {
+        console.log('done');
+        dispatch(getAllEntries(userURL));
+      });
   };
 };
 
@@ -159,17 +159,13 @@ export const updateSingleEntry = (endpoint, updatedEntry) => {
     axios
       .put(endpoint, updatedEntry)
       .then((response) => {
-        if (response.statusText === "OK") {
+        if (response.statusText === 'OK') {
           dispatch(updateSingleEntrySuccess(`Entry updated successfully`));
         }
       })
       .catch((error) => {
         console.log(error);
-        dispatch(
-          updateSingleEntryFailure(
-            `There was an error while processing your request`
-          )
-        );
+        dispatch(updateSingleEntryFailure(`There was an error while processing your request`));
       });
   };
 };
