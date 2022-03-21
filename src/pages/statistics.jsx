@@ -1,8 +1,9 @@
 import React from 'react';
 import Sidebar from '../components/sidebar/sidebar';
-import Charts from '../components/dashboard/charts';
+import BarCharts from '../components/dashboard/barChart';
 import User from '../components/login/user';
 import HoursOfSleep from '../components/statistics/hoursOfSleep';
+import PieCharts from '../components/statistics/pieChart';
 
 const Statistics = () => (
   <main className='flex flex-col items-start md:ml-80 pt-6'>
@@ -21,11 +22,11 @@ const Statistics = () => (
         <p className='text-sm font-medium uppercase flex justify-center'>
           Last 5 entries
         </p>
-        <Charts displayMode={'latest'} />
+        <BarCharts displayMode={'latest'} />
         <p className='text-sm font-medium uppercase flex justify-center'>
           Average sleep
         </p>
-        <Charts displayMode={'average'} />
+        <BarCharts displayMode={'average'} />
       </div>
       <div className='flex flex-col justify-center pt-10 p-5 xl:pl-48'>
         <div className='text-sm font-medium uppercase flex justify-center xl:justify-start'>
@@ -34,6 +35,7 @@ const Statistics = () => (
         <div className=''>
           <HoursOfSleep />
         </div>
+        <PieCharts displayMode={'latest'} />
       </div>
     </div>
   </main>

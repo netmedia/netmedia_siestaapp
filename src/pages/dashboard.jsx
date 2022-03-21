@@ -6,7 +6,7 @@ import { useState } from 'react';
 import UpcomingAlarms from '../components/dashboard/upcomingAlarms';
 import Sidebar from '../components/sidebar/sidebar';
 import User from '../components/login/user';
-import Charts from '../components/dashboard/charts';
+import Charts from '../components/dashboard/barChart';
 
 const Dashboard = () => {
   const [displayMode, setDisplayMode] = useState('latest');

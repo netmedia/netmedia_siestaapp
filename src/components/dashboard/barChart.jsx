@@ -54,6 +54,7 @@ const Charts = ({ displayMode }) => {
           );
         }),
         backgroundColor: '#013A87',
+        barThickness: 15,
       },
     ],
   };
