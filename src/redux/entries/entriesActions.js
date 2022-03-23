@@ -138,7 +138,6 @@ export const deleteSingleEntry = (endpoint, userURL) => {
       .delete(endpoint)
       .then((response) => {
         if (response.statusText === 'OK') {
-          console.log('pass');
           dispatch(deleteSingleEntrySuccess(`Entry deleted successfully`));
         }
       })
@@ -147,7 +146,6 @@ export const deleteSingleEntry = (endpoint, userURL) => {
         dispatch(deleteSingleEntryFailure(`There was an error while processing your request`));
       })
       .finally(() => {
-        console.log('done');
         dispatch(getAllEntries(userURL));
       });
   };

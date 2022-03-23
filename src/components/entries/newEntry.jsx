@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 import { AiFillPlusCircle } from 'react-icons/ai';
 import { ImCancelCircle } from 'react-icons/im';
 import { addSingleEntry } from '../../redux/entries/entriesActions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getFromLocal } from '../../utils/localStorage';
+import { toast } from 'react-toastify';
+import { toastOptions } from '../../utils/toastOptions';
 
 const NewEntry = ({ setShowForm }) => {
   const [formData, setFormData] = useState({
@@ -14,6 +16,27 @@ const NewEntry = ({ setShowForm }) => {
     userId: getFromLocal('loginData').googleId,
   });
 
+  const [formErrorState, setFormErrorState] = useState({
+    isError: false,
+    errorMessage: '',
+  });
+
+  const listOfEntries = useSelector((state) => state.entries.entries);
+
+  const dateValidation = (dateInput) => {
+    const dateIsPicked = listOfEntries.find((dateValue) => dateValue.date === dateInput);
+    if (dateIsPicked) {
+      setFormErrorState({
+        ...formErrorState,
+        isError: true,
+        errorMessage: 'You have already submitted an entry on this date!',
+      });
+    } else {
+      setFormData({ ...formData, date: dateInput });
+      setFormErrorState({ ...formErrorState, isError: false, errorMessage: '' });
+    }
+  };
+
   useEffect(() => {
     return () => {
       setShowForm(false);
@@ -21,13 +44,22 @@ const NewEntry = ({ setShowForm }) => {
     //eslint-disable-next-line
   }, []);
 
+  useEffect(() => {
+    if (formErrorState.isError) {
+      toast.error(formErrorState.errorMessage, toastOptions);
+    }
+  }, [formErrorState]);
+
   const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    dispatch(addSingleEntry('http://localhost:3005/entries', formData));
-    setShowForm(false);
+    if (formErrorState.isError) {
+      toast.error(formErrorState.errorMessage, toastOptions);
+    } else {
+      dispatch(addSingleEntry('http://localhost:3005/entries', formData));
+      setShowForm(false);
+    }
   };
 
   const currentDate = () => {
@@ -63,8 +95,9 @@ const NewEntry = ({ setShowForm }) => {
           Date:
         </label>
         <input
-          onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-          value={formData.date}
+          onBlur={(e) => {
+            dateValidation(e.target.value);
+          }}
           type='date'
           name='date'
           max={currentDate(Date.now())}
@@ -94,9 +127,7 @@ const NewEntry = ({ setShowForm }) => {
           Sleep end
         </label>
         <input
-          onChange={(e) =>
-            setFormData({ ...formData, endTime: e.target.value })
-          }
+          onChange={(e) => setFormData({ ...formData, endTime: e.target.value })}
           value={formData.endTime}
           type='time'
           name='sleep-end'
