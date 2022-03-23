@@ -42,7 +42,7 @@ const Charts = ({ displayMode }) => {
     labels,
     datasets: [
       {
-        label: 'Display',
+        label: displayMode,
         data: listOfEntries.map((value) => {
           return hoursOfSleep(
             parseInt(value.startTime),
