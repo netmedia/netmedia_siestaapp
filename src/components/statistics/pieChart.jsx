@@ -2,7 +2,7 @@ import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 import { useSelector } from 'react-redux';
-import { compareAsc, compareDesc, format } from 'date-fns';
+import { format } from 'date-fns';
 
 const PieCharts = ({ displayMode }) => {
   const listOfEntries = useSelector((state) => state.entries.entries);
