@@ -1,12 +1,25 @@
 import React from 'react';
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip } from 'chart.js';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+} from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import { useSelector } from 'react-redux';
-import { format, compareAsc } from 'date-fns';
+import { format } from 'date-fns';
 const Charts = ({ displayMode }) => {
   const listOfEntries = useSelector((state) => state.entries.entries);
 
-  listOfEntries.sort(compareAsc);
+  listOfEntries.sort(sortFunction);
+
+  function sortFunction(a, b) {
+    var dateA = new Date(a.date).getTime();
+    var dateB = new Date(b.date).getTime();
+    return dateA > dateB ? 1 : -1;
+  }
 
   const hoursOfSleep = (time1, time2) => {
     let hours = 0;
@@ -31,7 +44,10 @@ const Charts = ({ displayMode }) => {
       {
         label: 'Display',
         data: listOfEntries.map((value) => {
-          return hoursOfSleep(parseInt(value.startTime), parseInt(value.endTime));
+          return hoursOfSleep(
+            parseInt(value.startTime),
+            parseInt(value.endTime)
+          );
         }),
         backgroundColor: '#013A87',
         barThickness: 15,
