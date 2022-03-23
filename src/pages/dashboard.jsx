@@ -72,15 +72,15 @@ const Dashboard = () => {
                 </p>
                 <p
                   onClick={() => {
-                    setDisplayMode('average');
+                    setDisplayMode('this-year');
                   }}
                   className={
-                    displayMode === 'average'
+                    displayMode === 'this-year'
                       ? defaultMarkupClasses.activeClass
                       : defaultMarkupClasses.defaultClass
                   }
                 >
-                  Average
+                  This Year
                 </p>
               </div>
               <Charts displayMode={displayMode} />

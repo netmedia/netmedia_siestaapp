@@ -32,11 +32,21 @@ const Charts = ({ displayMode }) => {
     return hours;
   };
 
-  const labels = listOfEntries.map((value) => {
-    return displayMode === 'average'
-      ? format(new Date(value.date), 'dd/MM/yyyy').slice(6, 10)
-      : format(new Date(value.date), 'dd/MM/yyyy');
-  });
+  const labels =
+    displayMode === 'this-year'
+      ? listOfEntries
+          .filter((value) => {
+            return (
+              format(new Date(value.date), 'dd/MM/yyyy').slice(6, 10) ===
+              format(new Date(Date.now()), 'dd/MM/yyyy').slice(6, 10)
+            );
+          })
+          .map((value) => {
+            return format(new Date(value.date), 'dd/MM/yyyy');
+          })
+      : listOfEntries.map((value) => {
+          return format(new Date(value.date), 'dd/MM/yyyy');
+        });
 
   const data = {
     labels,

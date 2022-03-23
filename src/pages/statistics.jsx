@@ -26,10 +26,10 @@ const Statistics = () => (
       </div>
       <div className='ml-0 md:ml-[30px] pt-10 flex flex-col'>
         <p className='text-sm font-medium uppercase flex justify-center'>
-          Average sleep
+          This Year
         </p>
-        <BarCharts displayMode={'average'} />
-        <PieCharts displayMode={'average'} />
+        <BarCharts displayMode={'this-year'} />
+        <PieCharts displayMode={'this-year'} />
       </div>
     </div>
   </main>

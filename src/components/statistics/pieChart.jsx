@@ -40,7 +40,7 @@ const PieCharts = ({ displayMode }) => {
   };
 
   const labels = listOfEntries.map((value) => {
-    return displayMode === 'average'
+    return displayMode === 'this-year'
       ? format(new Date(value.date), 'dd/MM/yyyy').slice(6, 10)
       : format(new Date(value.date), 'dd/MM/yyyy');
   });
@@ -56,7 +56,10 @@ const PieCharts = ({ displayMode }) => {
       {
         label: 'Display',
         data: listOfEntries.map((value) => {
-          return hoursOfSleep(parseInt(value.startTime), parseInt(value.endTime));
+          return hoursOfSleep(
+            parseInt(value.startTime),
+            parseInt(value.endTime)
+          );
         }),
         backgroundColor: listOfEntries.map(() => {
           return String(setBg());
