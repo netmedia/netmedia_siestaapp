@@ -35,6 +35,11 @@ const PieCharts = ({ displayMode }) => {
 
   console.log(labels);
 
+  const setBg = () => {
+    const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    return '#' + randomColor;
+  };
+
   const data = {
     labels,
     datasets: [
@@ -46,7 +51,10 @@ const PieCharts = ({ displayMode }) => {
             parseInt(value.endTime)
           );
         }),
-        backgroundColor: '#013A87',
+        backgroundColor: listOfEntries.map(() => {
+          return String(setBg());
+        }),
+        borderColor: '#ffffff',
       },
     ],
   };
@@ -56,8 +64,6 @@ const PieCharts = ({ displayMode }) => {
     var dateB = new Date(b.date).getTime();
     return dateA > dateB ? 1 : -1;
   }
-
-  console.log(data);
 
   ChartJS.register(ArcElement, Tooltip, Legend);
 
