@@ -5,7 +5,7 @@ import User from '../components/login/user';
 import PieCharts from '../components/statistics/pieChart';
 
 const Statistics = () => (
-  <main className='flex flex-col items-start md:ml-80 pt-6'>
+  <main className='flex flex-col items-center md:items-start md:ml-80 pt-6'>
     <div>
       <Sidebar />
       <div className='pt-7 md:pt-20'>
@@ -17,14 +17,14 @@ const Statistics = () => (
       </div>
     </div>
     <div className='flex flex-col flex-wrap justify-center md:flex-row'>
-      <div className='ml-5 md:ml-[30px] pt-10 flex flex-col'>
+      <div className='ml-0 md:ml-[30px] pt-10 flex flex-col'>
         <p className='text-sm font-medium uppercase flex justify-center'>
           Last 5 entries
         </p>
         <BarCharts displayMode={'latest'} />
         <PieCharts displayMode={'latest'} />
       </div>
-      <div className='ml-5 md:ml-[30px] pt-10 flex flex-col'>
+      <div className='ml-0 md:ml-[30px] pt-10 flex flex-col'>
         <p className='text-sm font-medium uppercase flex justify-center'>
           Average sleep
         </p>
