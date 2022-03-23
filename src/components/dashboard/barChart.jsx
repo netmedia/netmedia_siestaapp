@@ -1,18 +1,12 @@
 import React from 'react';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-} from 'chart.js';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import { useSelector } from 'react-redux';
-
+import { format, compareAsc } from 'date-fns';
 const Charts = ({ displayMode }) => {
   const listOfEntries = useSelector((state) => state.entries.entries);
-  listOfEntries.sort(sortFunction);
+
+  listOfEntries.sort(compareAsc);
 
   const hoursOfSleep = (time1, time2) => {
     let hours = 0;
@@ -25,22 +19,11 @@ const Charts = ({ displayMode }) => {
     return hours;
   };
 
-  const formatDate = (dateString) => {
-    const options = {
-      year: 'numeric',
-      month: 'numeric',
-      day: 'numeric',
-    };
-    return new Date(dateString).toLocaleDateString(options);
-  };
-
   const labels = listOfEntries.map((value) => {
     return displayMode === 'average'
-      ? formatDate(value.date).slice(6, 10)
-      : formatDate(value.date);
+      ? format(new Date(value.date), 'dd/MM/yyyy').slice(6, 10)
+      : format(new Date(value.date), 'dd/MM/yyyy');
   });
-
-  console.log(labels);
 
   const data = {
     labels,
@@ -48,24 +31,13 @@ const Charts = ({ displayMode }) => {
       {
         label: 'Display',
         data: listOfEntries.map((value) => {
-          return hoursOfSleep(
-            parseInt(value.startTime),
-            parseInt(value.endTime)
-          );
+          return hoursOfSleep(parseInt(value.startTime), parseInt(value.endTime));
         }),
         backgroundColor: '#013A87',
         barThickness: 15,
       },
     ],
   };
-
-  function sortFunction(a, b) {
-    var dateA = new Date(a.date).getTime();
-    var dateB = new Date(b.date).getTime();
-    return dateA > dateB ? 1 : -1;
-  }
-
-  console.log(data);
 
   ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip);
 

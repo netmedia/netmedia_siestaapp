@@ -2,10 +2,11 @@ import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 import { useSelector } from 'react-redux';
+import { compareAsc, compareDesc, format } from 'date-fns';
 
 const PieCharts = ({ displayMode }) => {
   const listOfEntries = useSelector((state) => state.entries.entries);
-  listOfEntries.sort(sortFunction);
+  listOfEntries.sort(compareAsc);
 
   const hoursOfSleep = (time1, time2) => {
     let hours = 0;
@@ -18,22 +19,11 @@ const PieCharts = ({ displayMode }) => {
     return hours;
   };
 
-  const formatDate = (dateString) => {
-    const options = {
-      year: 'numeric',
-      month: 'numeric',
-      day: 'numeric',
-    };
-    return new Date(dateString).toLocaleDateString(options);
-  };
-
   const labels = listOfEntries.map((value) => {
     return displayMode === 'average'
-      ? formatDate(value.date).slice(6, 10)
-      : formatDate(value.date);
+      ? format(new Date(value.date), 'dd/MM/yyyy').slice(6, 10)
+      : format(new Date(value.date), 'dd/MM/yyyy');
   });
-
-  console.log(labels);
 
   const setBg = () => {
     const randomColor = Math.floor(Math.random() * 16777215).toString(16);
@@ -46,10 +36,7 @@ const PieCharts = ({ displayMode }) => {
       {
         label: 'Display',
         data: listOfEntries.map((value) => {
-          return hoursOfSleep(
-            parseInt(value.startTime),
-            parseInt(value.endTime)
-          );
+          return hoursOfSleep(parseInt(value.startTime), parseInt(value.endTime));
         }),
         backgroundColor: listOfEntries.map(() => {
           return String(setBg());
@@ -58,12 +45,6 @@ const PieCharts = ({ displayMode }) => {
       },
     ],
   };
-
-  function sortFunction(a, b) {
-    var dateA = new Date(a.date).getTime();
-    var dateB = new Date(b.date).getTime();
-    return dateA > dateB ? 1 : -1;
-  }
 
   ChartJS.register(ArcElement, Tooltip, Legend);
 

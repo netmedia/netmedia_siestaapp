@@ -4,6 +4,7 @@ import { deleteSingleEntry, getAllEntries } from '../../redux/entries/entriesAct
 import { ImBin } from 'react-icons/im';
 import { FiEdit } from 'react-icons/fi';
 import Loading from '../loading/loading';
+import { format } from 'date-fns';
 
 const EntryList = ({ setShowEditForm, setItemToEditID }) => {
   const dispatch = useDispatch();
@@ -12,7 +13,11 @@ const EntryList = ({ setShowEditForm, setItemToEditID }) => {
 
   useEffect(() => {
     dispatch(
-      getAllEntries(`http://localhost:3005/entries?userId=${JSON.parse(localStorage.getItem('loginData')).googleId}`)
+      getAllEntries(
+        `http://localhost:3005/entries?userId=${
+          JSON.parse(localStorage.getItem('loginData')).googleId
+        }`
+      )
     );
 
     // eslint-disable-next-line
@@ -29,20 +34,13 @@ const EntryList = ({ setShowEditForm, setItemToEditID }) => {
     return hours;
   };
 
-  const formatDate = (dateString) => {
-    const options = {
-      year: 'numeric',
-      month: 'numeric',
-      day: 'numeric',
-    };
-    return new Date(dateString).toLocaleDateString(options);
-  };
-
   const handleDelete = (entryID) => {
     dispatch(
       deleteSingleEntry(
         `http://localhost:3005/entries/${entryID}`,
-        `http://localhost:3005/entries?userId=${JSON.parse(localStorage.getItem('loginData')).googleId}`
+        `http://localhost:3005/entries?userId=${
+          JSON.parse(localStorage.getItem('loginData')).googleId
+        }`
       )
     );
   };
@@ -60,7 +58,9 @@ const EntryList = ({ setShowEditForm, setItemToEditID }) => {
                   <p className='text-siesta-blue-light font-bold'>{value.title}</p>
                 </div>
                 <div>
-                  <p className='font-bold text-siesta-grey-dark'>{formatDate(value.date)}</p>
+                  <p className='font-bold text-siesta-grey-dark'>
+                    {format(new Date(value.date), 'dd/MM/yyyy')}
+                  </p>
                 </div>
                 <div>
                   <p className='font-bold text-siesta-grey-dark'>
@@ -75,7 +75,8 @@ const EntryList = ({ setShowEditForm, setItemToEditID }) => {
                         : 'font-bold text-green-700'
                     }`}
                   >
-                    {hoursOfSleep(parseInt(value.startTime), parseInt(value.endTime))} hours of sleep
+                    {hoursOfSleep(parseInt(value.startTime), parseInt(value.endTime))} hours of
+                    sleep
                   </p>
                 </div>
                 <div className='flex items-center gap-4'>

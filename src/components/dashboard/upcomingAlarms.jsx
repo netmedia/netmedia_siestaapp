@@ -1,6 +1,7 @@
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getAllEntries } from "../../redux/entries/entriesActions";
+import { format } from 'date-fns';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getAllEntries } from '../../redux/entries/entriesActions';
 
 const UpcomingAlarms = () => {
   const dispatch = useDispatch();
@@ -10,7 +11,7 @@ const UpcomingAlarms = () => {
     dispatch(
       getAllEntries(
         `http://localhost:3005/entries?userId=${
-          JSON.parse(localStorage.getItem("loginData")).googleId
+          JSON.parse(localStorage.getItem('loginData')).googleId
         }`
       )
     );
@@ -22,7 +23,7 @@ const UpcomingAlarms = () => {
     let h = d.getHours();
     let m = d.getMinutes();
 
-    return h + ":" + m;
+    return h + ':' + m;
   };
 
   const compareDateTime = (d, t) => {
@@ -30,15 +31,6 @@ const UpcomingAlarms = () => {
     const date2 = new Date(Date.now()).toISOString().slice(0, 10);
 
     return Date.parse(`${date1} ${t}`) >= Date.parse(`${date2} ${currentTime()}`);
-  };
-
-  const formatDate = (dateString) => {
-    const options = {
-      year: "numeric",
-      month: "numeric",
-      day: "numeric",
-    };
-    return new Date(dateString).toLocaleDateString(options);
   };
 
   return (
@@ -53,7 +45,9 @@ const UpcomingAlarms = () => {
               <div className='pl-5 flex flex-col gap-4'>
                 <div className='pt-1'>
                   <p>{value.title}</p>
-                  <p className='text-gray-400 font-light'>{formatDate(value.date)}</p>
+                  <p className='text-gray-400 font-light'>
+                    {format(new Date(value.date), 'dd/MM/yyyy')}
+                  </p>
                   <p className='text-gray-400 font-light'>{value.endTime}</p>
                 </div>
               </div>
