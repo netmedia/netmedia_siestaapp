@@ -3,7 +3,7 @@ import { AiOutlineBarChart } from 'react-icons/ai';
 import { BsFillCalculatorFill } from 'react-icons/bs';
 import { MdOutlineEventNote } from 'react-icons/md';
 import { useState } from 'react';
-import UpcomingAlarms from '../components/dashboard/upcomingAlarms';
+import LatestEntries from '../components/dashboard/latestEntries';
 import Sidebar from '../components/sidebar/sidebar';
 import User from '../components/login/user';
 import Charts from '../components/dashboard/barChart';
@@ -86,7 +86,7 @@ const Dashboard = () => {
               <Charts displayMode={displayMode} />
             </div>
             <div className='flex flex-col w-[200px] lg:pt-24 md:pt-5'>
-              <UpcomingAlarms />
+              <LatestEntries />
             </div>
           </div>
         </div>
