@@ -37,6 +37,18 @@ const NewEntry = ({ setShowForm }) => {
     }
   };
 
+  const timeValidation = (timeInput) => {
+    if (!timeInput) {
+      setFormErrorState({
+        ...formErrorState,
+        isError: true,
+        errorMessage: 'Please enter time',
+      });
+    } else {
+      setFormErrorState({ ...formErrorState, isError: false, errorMessage: '' });
+    }
+  };
+
   useEffect(() => {
     return () => {
       setShowForm(false);
@@ -114,6 +126,7 @@ const NewEntry = ({ setShowForm }) => {
           onChange={(e) => {
             setFormData({ ...formData, startTime: e.target.value });
           }}
+          onBlur={(e) => timeValidation(e.target.value)}
           value={formData.startTime}
           type='time'
           name='sleep-start'
@@ -129,6 +142,7 @@ const NewEntry = ({ setShowForm }) => {
         <input
           onChange={(e) => setFormData({ ...formData, endTime: e.target.value })}
           value={formData.endTime}
+          onBlur={(e) => timeValidation(e.target.value)}
           type='time'
           name='sleep-end'
           id='sleep-end'

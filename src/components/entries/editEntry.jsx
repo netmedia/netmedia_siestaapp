@@ -1,12 +1,9 @@
 import { useEffect, useState } from 'react';
 import { AiFillPlusCircle } from 'react-icons/ai';
 import { ImCancelCircle } from 'react-icons/im';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateSingleEntry } from '../../redux/entries/entriesActions';
 import { getFromLocal } from '../../utils/localStorage';
-import { toastOptions } from '../../utils/toastOptions';
 
 const EditEntry = ({ itemToEditID, setShowEditForm }) => {
   const itemToEdit = useSelector((state) =>
@@ -22,48 +19,17 @@ const EditEntry = ({ itemToEditID, setShowEditForm }) => {
 
   const [formData, setFormData] = useState({
     title: itemToEdit.title || '',
-    date: itemToEdit.date || '',
+    date: itemToEdit.date,
     startTime: itemToEdit.startTime || '',
     endTime: itemToEdit.endTime || '',
     userId: getFromLocal('loginData').googleId,
   });
 
-  const [formErrorState, setFormErrorState] = useState({
-    isError: false,
-    errorMessage: '',
-  });
-
-  const listOfEntries = useSelector((state) => state.entries.entries);
-
-  const dateValidation = (dateInput) => {
-    const dateIsPicked = listOfEntries.find((dateValue) => dateValue.date === dateInput);
-    if (dateIsPicked) {
-      setFormErrorState({
-        ...formErrorState,
-        isError: true,
-        errorMessage: 'You have already submitted an entry on this date!',
-      });
-    } else {
-      setFormData({ ...formData, date: dateInput });
-      setFormErrorState({ ...formErrorState, isError: false, errorMessage: '' });
-    }
-  };
-
-  useEffect(() => {
-    if (formErrorState.isError) {
-      toast.error(formErrorState.errorMessage, toastOptions);
-    }
-  }, [formErrorState]);
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (formErrorState.isError) {
-      toast.error(formErrorState.errorMessage, toastOptions);
-    } else {
-      setShowEditForm(false);
-      dispatch(updateSingleEntry(`http://localhost:3005/entries/${itemToEdit.id}`, formData));
-    }
+    setShowEditForm(false);
+    dispatch(updateSingleEntry(`http://localhost:3005/entries/${itemToEdit.id}`, formData));
   };
 
   return (
@@ -92,10 +58,7 @@ const EditEntry = ({ itemToEditID, setShowEditForm }) => {
           Date:
         </label>
         <input
-          // onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-          onBlur={(e) => {
-            dateValidation(e.target.value);
-          }}
+          disabled={true}
           type='date'
           name='date'
           id='date'
