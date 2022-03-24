@@ -4,18 +4,13 @@ import { ImCancelCircle } from 'react-icons/im';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateSingleEntry } from '../../redux/entries/entriesActions';
 import { getFromLocal } from '../../utils/localStorage';
+import { toast } from 'react-toastify';
+import { toastOptions } from '../../utils/toastOptions';
 
 const EditEntry = ({ itemToEditID, setShowEditForm }) => {
   const itemToEdit = useSelector((state) =>
     state.entries.entries.find((id) => id.id === itemToEditID)
   );
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    return () => setShowEditForm(false);
-    //eslint-disable-next-line
-  }, []);
 
   const [formData, setFormData] = useState({
     title: itemToEdit.title || '',
@@ -25,11 +20,48 @@ const EditEntry = ({ itemToEditID, setShowEditForm }) => {
     userId: getFromLocal('loginData').googleId,
   });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const [formErrorState, setFormErrorState] = useState({
+    isError: false,
+    errorMessage: '',
+  });
 
-    setShowEditForm(false);
-    dispatch(updateSingleEntry(`http://localhost:3005/entries/${itemToEdit.id}`, formData));
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    return () => setShowEditForm(false);
+    //eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    if (formErrorState.isError) {
+      toast.error(formErrorState.errorMessage, toastOptions);
+    }
+  }, [formErrorState]);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (formData.startTime === '' || formData.endTime === '') {
+      setFormErrorState({
+        ...formErrorState,
+        isError: true,
+        errorMessage: 'please fill out all fields',
+      });
+    } else {
+      dispatch(
+        updateSingleEntry(
+          `http://localhost:3005/entries/${itemToEdit.id}`,
+          formData
+        )
+      );
+      setShowEditForm(false);
+
+      setFormErrorState({
+        ...formErrorState,
+        isError: false,
+        errorMessage: '',
+      });
+    }
   };
 
   return (
@@ -88,7 +120,9 @@ const EditEntry = ({ itemToEditID, setShowEditForm }) => {
           Sleep end
         </label>
         <input
-          onChange={(e) => setFormData({ ...formData, endTime: e.target.value })}
+          onChange={(e) =>
+            setFormData({ ...formData, endTime: e.target.value })
+          }
           defaultValue={itemToEdit.endTime}
           type='time'
           name='sleep-end'
