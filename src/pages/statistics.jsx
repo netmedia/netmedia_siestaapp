@@ -1,4 +1,3 @@
-import React from 'react';
 import Sidebar from '../components/sidebar/sidebar';
 import BarCharts from '../components/dashboard/barChart';
 import User from '../components/login/user';

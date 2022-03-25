@@ -1,21 +1,20 @@
-import React from "react";
-import Sidebar from "../components/sidebar/sidebar";
-import { Col, Row } from "react-bootstrap";
+import Sidebar from '../components/sidebar/sidebar';
+import { Col, Row } from 'react-bootstrap';
 
 const About = () => (
-  <main className="flex flex-col items-start md:ml-80 pt-6">
+  <main className='flex flex-col items-start md:ml-80 pt-6'>
     <Row>
       <Col>
         <Sidebar />
       </Col>
-      <Col className="pt-6 xl:pt-20 text-3xl block">
-        <Row className="">
-          <h2 className="font-normal text-xl px-5">About</h2>
-          <p className="font-light text-gray-400 text-sm px-5 py-2">
+      <Col className='pt-6 xl:pt-20 text-3xl block'>
+        <Row className=''>
+          <h2 className='font-normal text-xl px-5'>About</h2>
+          <p className='font-light text-gray-400 text-sm px-5 py-2'>
             Home / About
           </p>
         </Row>
-        <p className="text-sm pl-5 pr-5 md:pr-16 flex flex-wrap">
+        <p className='text-sm pl-5 pr-5 md:pr-16 flex flex-wrap'>
           Sleep is an essential function that allows your body and mind to
           recharge, leaving you refreshed and alert when you wake up. Healthy
           sleep also helps the body remain healthy and stave off diseases.

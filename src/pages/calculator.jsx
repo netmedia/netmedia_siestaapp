@@ -1,4 +1,3 @@
-import React from 'react';
 import SleepInfo from '../components/calculator/sleepInfo';
 import Sidebar from '../components/sidebar/sidebar';
 import User from '../components/login/user';

@@ -24,7 +24,9 @@ const NewEntry = ({ setShowForm }) => {
   const listOfEntries = useSelector((state) => state.entries.entries);
 
   const dateValidation = (dateInput) => {
-    const dateIsPicked = listOfEntries.find((dateValue) => dateValue.date === dateInput);
+    const dateIsPicked = listOfEntries.find(
+      (dateValue) => dateValue.date === dateInput
+    );
     if (dateIsPicked) {
       setFormErrorState({
         ...formErrorState,
@@ -33,7 +35,11 @@ const NewEntry = ({ setShowForm }) => {
       });
     } else {
       setFormData({ ...formData, date: dateInput });
-      setFormErrorState({ ...formErrorState, isError: false, errorMessage: '' });
+      setFormErrorState({
+        ...formErrorState,
+        isError: false,
+        errorMessage: '',
+      });
     }
   };
 
@@ -57,7 +63,11 @@ const NewEntry = ({ setShowForm }) => {
 
     if (formErrorState.isError) {
       toast.error(formErrorState.errorMessage, toastOptions);
-    } else if (formData.startTime === '' || formData.endTime === '' || formData.date === '') {
+    } else if (
+      formData.startTime === '' ||
+      formData.endTime === '' ||
+      formData.date === ''
+    ) {
       setFormErrorState({
         ...formErrorState,
         isError: true,
@@ -141,7 +151,9 @@ const NewEntry = ({ setShowForm }) => {
           Sleep end
         </label>
         <input
-          onChange={(e) => setFormData({ ...formData, endTime: e.target.value })}
+          onChange={(e) =>
+            setFormData({ ...formData, endTime: e.target.value })
+          }
           value={formData.endTime}
           // onBlur={(e) => timeValidation(e.target.value)}
           type='time'

@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { AiFillPlusCircle } from "react-icons/ai";
-import { toast } from "react-toastify";
-import { toastOptions } from "../../utils/toastOptions";
+import { useState } from 'react';
+import { AiFillPlusCircle } from 'react-icons/ai';
+import { toast } from 'react-toastify';
+import { toastOptions } from '../../utils/toastOptions';
 
 const SleepInfo = () => {
   const [timeSheet, setTimeSheet] = useState({
@@ -9,7 +9,11 @@ const SleepInfo = () => {
     idealHours: 0,
   });
 
-  const sleepInfoToastOptions = { ...toastOptions, position: "top-center", theme: "light" };
+  const sleepInfoToastOptions = {
+    ...toastOptions,
+    position: 'top-center',
+    theme: 'light',
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -18,11 +22,17 @@ const SleepInfo = () => {
 
   function calculateSleepDebt(hours, idealHours) {
     if (hours === idealHours) {
-      return toast.success("You got the perfect amount of sleep!", sleepInfoToastOptions);
+      return toast.success(
+        'You got the perfect amount of sleep!',
+        sleepInfoToastOptions
+      );
     } else if (hours > idealHours) {
-      return toast.warn("You got more sleep than needed.", sleepInfoToastOptions);
+      return toast.warn(
+        'You got more sleep than needed.',
+        sleepInfoToastOptions
+      );
     } else {
-      return toast.error("You should get more rest.", sleepInfoToastOptions);
+      return toast.error('You should get more rest.', sleepInfoToastOptions);
     }
   }
 

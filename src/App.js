@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Dashboard from './pages/dashboard';
 import Entries from './pages/entries';
@@ -14,7 +13,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Flip } from 'react-toastify';
 
 function App() {
-  const isUserLoggedIn = useSelector((state) => state.user.credentials.loggedIn);
+  const isUserLoggedIn = useSelector(
+    (state) => state.user.credentials.loggedIn
+  );
 
   const ErrorScreen = () => {
     return (

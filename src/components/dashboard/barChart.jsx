@@ -1,5 +1,11 @@
-import React from 'react';
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip } from 'chart.js';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+} from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import { useSelector } from 'react-redux';
 import { format } from 'date-fns';
@@ -37,18 +43,28 @@ const Charts = ({ displayMode }) => {
           .map((value) => {
             return format(new Date(value.date), 'dd/MM/yyyy');
           })
-      : listOfEntries.slice(listOfEntries.length - 5, listOfEntries.length).map((value) => {
-          return format(new Date(value.date), 'dd/MM/yyyy');
-        });
+      : listOfEntries
+          .slice(listOfEntries.length - 5, listOfEntries.length)
+          .map((value) => {
+            return format(new Date(value.date), 'dd/MM/yyyy');
+          });
 
   const dataDisplayMode =
     displayMode === 'this-year'
       ? listOfEntries.map((value) => {
-          return hoursOfSleep(parseInt(value.startTime), parseInt(value.endTime));
+          return hoursOfSleep(
+            parseInt(value.startTime),
+            parseInt(value.endTime)
+          );
         })
-      : listOfEntries.slice(listOfEntries.length - 5, listOfEntries.length).map((value) => {
-          return hoursOfSleep(parseInt(value.startTime), parseInt(value.endTime));
-        });
+      : listOfEntries
+          .slice(listOfEntries.length - 5, listOfEntries.length)
+          .map((value) => {
+            return hoursOfSleep(
+              parseInt(value.startTime),
+              parseInt(value.endTime)
+            );
+          });
 
   const data = {
     labels,

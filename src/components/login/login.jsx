@@ -2,7 +2,10 @@ import { useHistory } from 'react-router-dom';
 import { useGoogleLogin } from 'react-google-login';
 import { refreshTokenSetup } from '../../utils/refreshToken';
 import { useDispatch, useSelector } from 'react-redux';
-import { userLoginFailure, userLoginSuccess } from '../../redux/user/userActions';
+import {
+  userLoginFailure,
+  userLoginSuccess,
+} from '../../redux/user/userActions';
 
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
@@ -12,7 +15,12 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const onSuccess = (googleData) => {
-    dispatch(userLoginSuccess(googleData.profileObj, `🙋  Welcome ${googleData.profileObj.givenName}`));
+    dispatch(
+      userLoginSuccess(
+        googleData.profileObj,
+        `🙋  Welcome ${googleData.profileObj.givenName}`
+      )
+    );
     refreshTokenSetup(googleData);
     history.push('/dashboard');
   };

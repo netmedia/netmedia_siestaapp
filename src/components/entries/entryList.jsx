@@ -1,6 +1,9 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteSingleEntry, getAllEntries } from '../../redux/entries/entriesActions';
+import {
+  deleteSingleEntry,
+  getAllEntries,
+} from '../../redux/entries/entriesActions';
 import { ImBin } from 'react-icons/im';
 import { FiEdit } from 'react-icons/fi';
 import Loading from '../loading/loading';
@@ -55,7 +58,9 @@ const EntryList = ({ setShowEditForm, setItemToEditID }) => {
             <div key={key} className='flex'>
               <div className='flex flex-col gap-8 place-items-start justify-between bg-siesta-grey-light px-4 py-4 text-sm rounded-xl w-[270px]'>
                 <div>
-                  <p className='text-siesta-blue-light font-bold'>{value.title}</p>
+                  <p className='text-siesta-blue-light font-bold'>
+                    {value.title}
+                  </p>
                 </div>
                 <div>
                   <p className='font-bold text-siesta-grey-dark'>
@@ -70,13 +75,19 @@ const EntryList = ({ setShowEditForm, setItemToEditID }) => {
                 <div>
                   <p
                     className={`${
-                      hoursOfSleep(parseInt(value.startTime), parseInt(value.endTime)) < 8
+                      hoursOfSleep(
+                        parseInt(value.startTime),
+                        parseInt(value.endTime)
+                      ) < 8
                         ? 'font-bold text-red-700'
                         : 'font-bold text-green-700'
                     }`}
                   >
-                    {hoursOfSleep(parseInt(value.startTime), parseInt(value.endTime))} hours of
-                    sleep
+                    {hoursOfSleep(
+                      parseInt(value.startTime),
+                      parseInt(value.endTime)
+                    )}{' '}
+                    hours of sleep
                   </p>
                 </div>
                 <div className='flex items-center gap-4'>
