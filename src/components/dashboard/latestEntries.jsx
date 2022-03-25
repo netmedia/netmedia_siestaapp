@@ -21,11 +21,9 @@ const LatestEntries = () => {
   return (
     <>
       <div className='bg-siesta-grey-light rounded-3xl py-4'>
-        <p className='text-center font-normal text-xs whitespace-nowrap'>
-          Latest Entries
-        </p>
+        <p className='text-center font-normal text-xs whitespace-nowrap'>Latest Entries</p>
       </div>
-      {listOfEntries.slice(0, 2).map((value, key) => {
+      {listOfEntries.slice(listOfEntries.length - 2, listOfEntries.length).map((value, key) => {
         return (
           <div key={key}>
             <div className='pl-5 flex flex-col gap-4'>
