@@ -47,7 +47,7 @@ const Dashboard = () => {
             </p>
             <User />
           </div>
-          <div className='flex flex-wrap justify-center lg:justify-start items-center gap-5 px-5 py-3'>
+          <div className='flex flex-wrap justify-center lg:justify-start items-center gap-5 px-5 py-3 pb-5'>
             {widgetContent.map((items, key) => {
               return <UserWidget items={items} key={key} />;
             })}
@@ -85,7 +85,7 @@ const Dashboard = () => {
               </div>
               <Charts displayMode={displayMode} />
             </div>
-            <div className='flex flex-col w-[200px] lg:pt-24 md:pt-5'>
+            <div className='flex flex-col w-[200px] lg:pt-24 pt-5'>
               <LatestEntries />
             </div>
           </div>
