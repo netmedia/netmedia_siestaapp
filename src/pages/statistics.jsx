@@ -17,18 +17,22 @@ const Statistics = () => (
     </div>
     <div className='flex flex-col flex-wrap justify-center md:flex-row'>
       <div className='ml-0 md:ml-[30px] pt-10 flex flex-col'>
-        <p className='text-sm font-medium uppercase flex justify-center'>
+        <p className='text-sm font-medium uppercase flex justify-center pb-5'>
           Last 5 entries
         </p>
-        <BarCharts displayMode={'latest'} />
-        <PieCharts displayMode={'latest'} />
+        <div className='md:pb-5'>
+          <BarCharts displayMode={'latest'} />
+        </div>
+        <div className=''>
+          <PieCharts displayMode={'latest'} />
+        </div>
       </div>
-      <div className='ml-0 md:ml-[30px] pt-10 flex flex-col'>
-        <p className='text-sm font-medium uppercase flex justify-center'>
+      <div className='ml-0 md:ml-[30px] pt-10 flex flex-col md:pl-5'>
+        <p className='text-sm font-medium uppercase flex justify-center md:pb-5'>
           This Year
         </p>
         <BarCharts displayMode={'this-year'} />
-        <PieCharts displayMode={'this-year'} />
+        {/* <PieCharts displayMode={'this-year'} /> */}
       </div>
     </div>
   </main>

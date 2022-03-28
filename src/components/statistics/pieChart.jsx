@@ -39,11 +39,40 @@ const PieCharts = ({ displayMode }) => {
     return hours;
   };
 
-  const labels = listOfEntries.map((value) => {
-    return displayMode === 'this-year'
-      ? format(new Date(value.date), 'dd/MM/yyyy').slice(6, 10)
-      : format(new Date(value.date), 'dd/MM/yyyy');
-  });
+  const labels =
+    displayMode === 'this-year'
+      ? listOfEntries
+          .filter((value) => {
+            return (
+              format(new Date(value.date), 'dd/MM/yyyy').slice(6, 10) ===
+              format(new Date(Date.now()), 'dd/MM/yyyy').slice(6, 10)
+            );
+          })
+          .map((value) => {
+            return format(new Date(value.date), 'dd/MM/yyyy');
+          })
+      : listOfEntries
+          .slice(listOfEntries.length - 5, listOfEntries.length)
+          .map((value) => {
+            return format(new Date(value.date), 'dd/MM/yyyy');
+          });
+
+  const dataDisplayMode =
+    displayMode === 'this-year'
+      ? listOfEntries.map((value) => {
+          return hoursOfSleep(
+            parseInt(value.startTime),
+            parseInt(value.endTime)
+          );
+        })
+      : listOfEntries
+          .slice(listOfEntries.length - 5, listOfEntries.length)
+          .map((value) => {
+            return hoursOfSleep(
+              parseInt(value.startTime),
+              parseInt(value.endTime)
+            );
+          });
 
   const setBg = () => {
     const randomColor = Math.floor(Math.random() * 16777215).toString(16);
@@ -54,14 +83,9 @@ const PieCharts = ({ displayMode }) => {
     labels,
     datasets: [
       {
-        label: 'Display',
-        data: listOfEntries.map((value) => {
-          return hoursOfSleep(
-            parseInt(value.startTime),
-            parseInt(value.endTime)
-          );
-        }),
-        backgroundColor: listOfEntries.map(() => {
+        label: displayMode,
+        data: dataDisplayMode,
+        backgroundColor: labels.map(() => {
           return String(setBg());
         }),
         borderColor: '#ffffff',
