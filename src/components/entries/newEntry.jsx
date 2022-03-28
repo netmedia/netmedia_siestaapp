@@ -136,6 +136,11 @@ const NewEntry = ({ setShowForm }) => {
         <input
           onChange={(e) => {
             setFormData({ ...formData, startTime: e.target.value });
+            setFormErrorState({
+              ...formErrorState,
+              isError: false,
+              errorMessage: '',
+            });
           }}
           // onBlur={(e) => timeValidation(e.target.value)}
           value={formData.startTime}
@@ -151,9 +156,14 @@ const NewEntry = ({ setShowForm }) => {
           Sleep end
         </label>
         <input
-          onChange={(e) =>
-            setFormData({ ...formData, endTime: e.target.value })
-          }
+          onChange={(e) => {
+            setFormData({ ...formData, endTime: e.target.value });
+            setFormErrorState({
+              ...formErrorState,
+              isError: false,
+              errorMessage: '',
+            });
+          }}
           value={formData.endTime}
           // onBlur={(e) => timeValidation(e.target.value)}
           type='time'
